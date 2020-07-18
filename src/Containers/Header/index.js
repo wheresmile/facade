@@ -11,14 +11,14 @@ import NavigationBar from 'Components/Header/NavigationBar';
 
 class Header extends React.Component {
   renderNavLinks() {
-    const { forums } = this.props;
+    const { tabs } = this.props;
 
-    if (forums) {
-      return forums.map((forum) => {
+    if (tabs) {
+      return tabs.map((tab) => {
         return {
-          id: forum._id,
-          name: forum.forum_name,
-          link: `/${forum.forum_slug}`,
+          id: tab.id,
+          name: tab.display_name,
+          link: `/${tab.slug}`,
         };
       });
     }
@@ -42,11 +42,6 @@ class Header extends React.Component {
 export default connect(
   (state) => { return {
     user: state.user,
-    forums: [
-      {_id:0, forum_name:"首页", forum_slug:""}, 
-      {_id:1, forum_name:"清单", forum_slug:"checklist"},
-      {_id:2, forum_name:"我", forum_slug:"user"},
-      {_id:3, forum_name:"今日", forum_slug:"metto"},
-    ],
+    tabs: state.app.tabs,
   }; }
 )(Header);

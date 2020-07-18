@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [Create React App](https://github.com/facebook/create-react-app)
 * [React](https://reactjs.org/tutorial/tutorial.html)
 * [React router](https://reactrouter.com/web/guides/quick-start)
+* [React-redux](https://react-redux.js.org/introduction/quick-start)
 
 ## 命令
 

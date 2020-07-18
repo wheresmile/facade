@@ -16,7 +16,7 @@ class NavigationBar extends React.Component {
           { navigationLinks.map(link => {
               return (
                 <li key={link.id}>
-                  <NavLink exact={link.id === 0} to={link.link}
+                  <NavLink exact={link.link === "/"} to={link.link}
                     className={styles.links}
                     activeClassName={styles.linkActive}
                   >

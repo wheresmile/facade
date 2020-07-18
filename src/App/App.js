@@ -10,23 +10,45 @@ import Header from 'Containers/Header';
 import Motto from 'Views/Motto';
 import Checklist from 'Views/Checklist';
 import NotFound from 'Views/NotFound';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/"> <Checklist /> </Route>
-          <Route path="/checklist"> <Checklist /> </Route>
-          <Route path="/metto"> <Motto /> </Route>
-          <Route path="/user"> <Motto /> </Route>
-          <Route path=":forum/new_discussion"> <Motto /> </Route>
-          <Route path="*"> <NotFound /> </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+import { getHomeTabs } from './actions';
+
+class App extends React.Component {
+  componentDidMount() {
+    const {
+      getHomeTabs,
+    } = this.props;
+
+    // get home tab list
+    getHomeTabs();
+  }
+
+  render(){
+    return (
+      <Router>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path="/"> <Checklist /> </Route>
+            <Route path="/checklist"> <Checklist /> </Route>
+            <Route path="/metto"> <Motto /> </Route>
+            <Route path="/user"> <Motto /> </Route>
+            <Route path=":forum/new_discussion"> <Motto /> </Route>
+            <Route path="*"> <NotFound /> </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
-export default App;
+export default connect(
+  (state) => {return {
+      checklists: state.app.checklists,
+      currentTab: state.app.currentTab,
+    };},
+  (dispatch) => { return {
+    getHomeTabs: () => { dispatch(getHomeTabs()); },
+  };}
+)(App);

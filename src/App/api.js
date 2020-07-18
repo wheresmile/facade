@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-export const getHomeTabs = () => {
+export const fetchHomeTabs = () => {
   return axios.get('/api/v1/tab/home');
 };
 
