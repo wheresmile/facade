@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-import Header from 'Containers/Header';
 import Motto from 'Views/Motto';
 import Checklist from 'Views/Checklist';
 import NotFound from 'Views/NotFound';
@@ -29,11 +28,10 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Header />
           <Switch>
             <Route exact path="/"> <Discussion /> </Route>
             <Route path="/checklist"> <Checklist /> </Route>
-            <Route path="/metto"> <Motto /> </Route>
+            <Route path="/motto"> <Motto /> </Route>
             <Route path="/user"> <Motto /> </Route>
             <Route path=":forum/new_discussion"> <Motto /> </Route>
             <Route path="*"> <NotFound /> </Route>

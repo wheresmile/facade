@@ -8,30 +8,24 @@ import styles from './styles.module.css';
 class DiscussionBox extends React.Component {
   render() {
     const {
-      description,
-      checked_count,
-      last_review,
+      discussionTitle,
+      voteCount,
+      opinionCount,
+      nickname,
+      link,
     } = this.props;
 
     return (
       <div className={styles.container}>
         <div className={classnames(styles.title)}>
-          <Link to={""}>{description}</Link>
-        </div>
-
-        <div className={classnames(styles.title)}>
-          {last_review && <div>
-            <div>{last_review.author_nickname}</div>
-            <div>{last_review.description}</div>
-          </div>
-          }
+          <Link to={link}>{discussionTitle}</Link>
         </div>
 
         <div className={styles.boxFooter}>
-          <div className={styles.tagsArea}>{"ch"}</div>
+          <div className={styles.tagsArea}>{nickname}</div>
           <div className={styles.postInfo}>
-            <span className={styles.info}>{checked_count}赞·</span>
-            <span className={styles.info}>{1}评</span>
+            <span className={styles.info}>{voteCount}赞·</span>
+            <span className={styles.info}>{opinionCount}评</span>
           </div>
         </div>
       </div>

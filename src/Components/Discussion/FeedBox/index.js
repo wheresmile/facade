@@ -39,8 +39,9 @@ FeedBox.defaultProps = {
   type: 'general',
   loading: false,
   discussions: [
-    {description:"又是一年高考的时间，今年的考生加油啊！", id:1, checked_count:1},
-    {description:"意大利配樂大師Ennio Morriconne 逝世", id:2, checked_count:1},
+    {id:1, discussionTitle:"又是一年高考的时间，今年的考生加油啊！", voteCount:1, opinionCount:6, nickname:"jingwei", link:""},
+    {id:2, discussionTitle:"意大利配樂大師Ennio Morriconne 逝世", voteCount:3, opinionCount:5, nickname:"chalvern", link:""},
+    
   ],
   currentForum: 'general',
   activeSortingMethod: 'date',
@@ -51,7 +52,7 @@ FeedBox.defaultProps = {
 export default connect(
   (state) => { 
     return {
-      discussions: state.app.checklists,
+      discussions: state.app.discussions,
     }; 
   }
 )(FeedBox);

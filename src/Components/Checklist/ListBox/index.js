@@ -31,8 +31,9 @@ class ListBox extends React.Component {
 ListBox.defaultProps = {
   loading: false,
   checklists: [
-    {description:"又是一年高考的时间，今年的考生加油啊！", id:1, checked_count:1},
-    {description:"意大利配樂大師Ennio Morriconne 逝世", id:2, checked_count:1},
+    {description:"早睡早起", id:1, checked_count:10, checked:true},
+    {description:"对亲爱的说一声“辛苦了”", id:2, checked_count:2, last_review:{description:"点个赞点个赞点个赞点个赞点个赞点个赞点个赞点个赞点个赞点个赞点个赞点个赞点个赞点哈哈哈", author_nickname:"chalvern"}},
+    {description:"做100个仰卧起坐30个俯卧撑", id:3, checked_count:1, checked:true},
   ],
 };
 

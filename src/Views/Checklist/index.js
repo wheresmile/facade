@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import appLayout from 'Shared/appLayout.module.css';
@@ -10,6 +10,7 @@ import LinkButton from 'Components/Buttons/LinkButton';
 import { connect } from 'react-redux';
 import { getChecklists } from 'App/actions';
 import ListBox from 'Components/Checklist/ListBox';
+import Header from 'Containers/Header';
 
 class Checklist extends React.Component {
   componentDidMount() {
@@ -22,18 +23,21 @@ class Checklist extends React.Component {
   render() {
     const { currentForum } = this.props;
     return (
-      <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
-        <div className={appLayout.primaryContent}>
-          <ListBox></ListBox>
-          <div className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)}>
-            <LinkButton className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} />
+      <Fragment>
+        <Header />
+        <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
+          <div className={appLayout.primaryContent}>
+            <ListBox></ListBox>
+            <div className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)}>
+              <LinkButton className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} />
+            </div>
+            
           </div>
-          
+          <div className={appLayout.secondaryContent}>
+            <SideBar currentForum={currentForum} />
+          </div>
         </div>
-        <div className={appLayout.secondaryContent}>
-          <SideBar currentForum={currentForum} />
-        </div>
-      </div>
+      </Fragment>
     );
   }
 }

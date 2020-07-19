@@ -39,6 +39,15 @@ class Header extends React.Component {
   }
 }
 
+Header.defaultProps = {
+  tabs: [
+    {id:1, display_name: "首页", slug: ""},
+    {id:2, display_name: "清单", slug: "checklist"},
+    {id:3, display_name: "我", slug: "user"},
+    {id:4, display_name: "今日", slug: "motto"},
+  ]
+}
+
 export default connect(
   (state) => { 
     return {
