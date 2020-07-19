@@ -5,8 +5,8 @@ import appLayout from 'Shared/appLayout.module.css';
 import styles from './styles.module.css';
 import classnames from 'classnames';
 
-import SideBar from 'Components/SideBar';
-import DiscussionNew from 'Components/Discussion/NewButton';
+import SideBar from 'Components/Checklist/SideBar';
+import LinkButton from 'Components/Buttons/LinkButton';
 import { connect } from 'react-redux';
 import { getChecklists } from 'App/actions';
 import ListBox from 'Components/Checklist/ListBox';
@@ -26,7 +26,7 @@ class Checklist extends React.Component {
         <div className={appLayout.primaryContent}>
           <ListBox></ListBox>
           <div className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)}>
-            <DiscussionNew className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} />
+            <LinkButton className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} />
           </div>
           
         </div>

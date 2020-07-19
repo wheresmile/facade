@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import styles from './styles.module.css';
 
-import Button from 'Components/Button';
+import Button from 'Components/Buttons/Button';
 
 class UserMenu extends React.Component {
   render(){
