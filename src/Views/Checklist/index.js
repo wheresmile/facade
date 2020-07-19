@@ -8,8 +8,17 @@ import classnames from 'classnames';
 import FeedBox from 'Components/FeedBox';
 import SideBar from 'Components/SideBar';
 import DiscussionNew from 'Components/Discussion/NewButton';
+import { connect } from 'react-redux';
+import { getChecklists } from 'App/actions';
 
 class Checklist extends React.Component {
+  componentDidMount() {
+    const {
+      getHomeChecklists
+    } = this.props;
+    getHomeChecklists();
+  }
+
   render() {
     const { currentForum } = this.props;
     return (
@@ -40,4 +49,11 @@ FeedBox.propTypes = {
   userProfile: PropTypes.bool,
 };
 
-export default Checklist;
+export default connect(
+  (state) => {return {
+    checklists: state.app.checklists,
+  }; },
+  (dispatch) => { return {
+    getHomeChecklists: () => { dispatch(getChecklists()); },
+  };}
+)(Checklist);

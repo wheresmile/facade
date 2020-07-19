@@ -40,8 +40,10 @@ class Header extends React.Component {
 }
 
 export default connect(
-  (state) => { return {
-    user: state.user,
-    tabs: state.app.tabs,
-  }; }
+  (state) => { 
+    return {
+      user: state.user,
+      tabs: state.app.tabs,
+    }; 
+  }
 )(Header);
