@@ -13,6 +13,7 @@ import NotFound from 'Views/NotFound';
 import { connect } from 'react-redux';
 
 import { getHomeTabs } from './actions';
+import Discussion from 'Views/Discussion';
 
 class App extends React.Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ class App extends React.Component {
         <div className="App">
           <Header />
           <Switch>
-            <Route exact path="/"> <Checklist /> </Route>
+            <Route exact path="/"> <Discussion /> </Route>
             <Route path="/checklist"> <Checklist /> </Route>
             <Route path="/metto"> <Motto /> </Route>
             <Route path="/user"> <Motto /> </Route>

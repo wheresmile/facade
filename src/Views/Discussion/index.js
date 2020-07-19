@@ -9,9 +9,9 @@ import SideBar from 'Components/SideBar';
 import DiscussionNew from 'Components/Discussion/NewButton';
 import { connect } from 'react-redux';
 import { getChecklists } from 'App/actions';
-import ListBox from 'Components/Checklist/ListBox';
+import FeedBox from 'Components/Discussion/FeedBox';
 
-class Checklist extends React.Component {
+class Discussion extends React.Component {
   componentDidMount() {
     const {
       getHomeChecklists
@@ -24,7 +24,7 @@ class Checklist extends React.Component {
     return (
       <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
         <div className={appLayout.primaryContent}>
-          <ListBox></ListBox>
+          <FeedBox></FeedBox>
           <div className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)}>
             <DiscussionNew className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} />
           </div>
@@ -39,7 +39,7 @@ class Checklist extends React.Component {
 }
 
 
-ListBox.propTypes = {
+FeedBox.propTypes = {
   type: PropTypes.oneOf(['general', 'pinned']),
   loading: PropTypes.bool,
   discussions: PropTypes.array,
@@ -51,9 +51,9 @@ ListBox.propTypes = {
 
 export default connect(
   (state) => {return {
-    checklists: state.app.checklists,
+    discussions: state.app.checklists,
   }; },
   (dispatch) => { return {
     getHomeChecklists: () => { dispatch(getChecklists()); },
   };}
-)(Checklist);
+)(Discussion);
