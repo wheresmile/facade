@@ -45,7 +45,8 @@ class App extends React.Component {
 }
 
 export default connect(
-  (state) => {return {
+  (state) => {
+    return {
       checklists: state.app.checklists,
       currentTab: state.app.currentTab,
     };},

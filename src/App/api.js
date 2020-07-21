@@ -10,6 +10,10 @@ export const fetchChecklists = () => {
   return axios.get('/api/v1/checklist/home');
 }
 
+// 拉取 motto
+export const fetchMotto = () => {
+  return axios.get('/api/v1/motto');
+}
 
 // 发布讨论
 export const postDiscussion = (discussion) => {

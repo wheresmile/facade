@@ -2,12 +2,15 @@ import {
   FETCHING_HOME_TAB_SUCCESS, 
   FETCHING_HOME_TAB_FAILURE, 
   FETCHING_HOME_CHECKLIST_FAILURE, 
-  FETCHING_HOME_CHECKLIST_SUCCESS
+  FETCHING_HOME_CHECKLIST_SUCCESS,
+  FETCHING_MOTTO_FAILURE,
+  FETCHING_MOTTO_SUCCESS
 } from './constants';
 
 import { 
   fetchHomeTabs,
   fetchChecklists,
+  fetchMotto,
 } from './api';
 
 /**
@@ -26,7 +29,9 @@ export const getHomeTabs = () => {
   };
 };
 
-
+/**
+ * get checklists
+ */
 export const getChecklists = () => {
   return (dispatch, getState) => {
     fetchChecklists().then(
@@ -34,6 +39,22 @@ export const getChecklists = () => {
         dispatch({ type: FETCHING_HOME_CHECKLIST_SUCCESS, payload: data.data.data });
       },
       error => dispatch({ type: FETCHING_HOME_CHECKLIST_FAILURE })
+    )
+  }
+}
+
+export const getMotto = () => {
+  return (dispatch, getState) => {
+    let state = getState();
+    // 如果已经拉取过一次，就不用再拉了
+    if (state.app.motto) {
+      return;
+    }
+    fetchMotto().then(
+      data => {
+        dispatch({ type: FETCHING_MOTTO_SUCCESS, payload: data.data.data });
+      },
+      error => dispatch({ type: FETCHING_MOTTO_FAILURE })
     )
   }
 }
