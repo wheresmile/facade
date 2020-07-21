@@ -1,0 +1,24 @@
+@value borderColor, smallBP from '~Shared/globalStyles.css';
+
+.constraintWidth {
+  margin: 0px auto;
+}
+
+/**
+ * Header Styles
+ */
+.headerTop {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media smallBP { padding: 0px 10px; }
+}
+
+
+.logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+}
