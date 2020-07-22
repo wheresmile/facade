@@ -23,7 +23,7 @@ class Motto extends React.Component {
         <SimpleHeader></SimpleHeader>
         <header className={styles.MottoHeader}>
           <div className={styles.MottoSentence}>{motto.details}</div>
-          <div className={styles.MottoSource}>from: {motto.source}</div>
+          <div className={styles.MottoSource}>—— {motto.source}</div>
         </header>
       </Fragment>
     );

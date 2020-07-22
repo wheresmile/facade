@@ -15,7 +15,8 @@
   pointer-events: none;
   margin-top: 5vmin;
   margin: 5vmin 5vmin 0 20vmin;
-  font-size: calc(14px + 0.1vmin);;
+  font-size: calc(14px + 0.1vmin);
+  font-family: arial,'\5b8b\4f53',sans-serif
 }
 
 .MottoHeader {
