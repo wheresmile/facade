@@ -11,7 +11,7 @@ import {
   fetchHomeTabs,
   fetchChecklists,
   fetchMotto,
-} from './api';
+} from '../api';
 
 /**
  * get home tab list

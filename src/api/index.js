@@ -16,6 +16,6 @@ export const fetchMotto = () => {
 }
 
 // 发布讨论
-export const postDiscussion = (discussion) => {
-  return axios.post('/api/v1/discussion/newDiscussion', discussion);
+export const postLoginForm = (loginForm) => {
+  return axios.post('/api/v1/auth/login', loginForm);
 };
