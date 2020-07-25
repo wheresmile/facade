@@ -35,3 +35,11 @@ export const postLoginForm = (data) => {
     data,
   });
 };
+
+export const fetchUserInfo = (params) => {
+  return request({
+    url: '/v1/user/info',
+    method: 'get',
+    params,
+  })
+}

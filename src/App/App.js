@@ -11,7 +11,7 @@ import Checklist from 'Views/Checklist';
 import NotFound from 'Views/NotFound';
 import { connect } from 'react-redux';
 
-import { getHomeTabs } from './actions';
+import { getHomeTabs, getUserInfo } from './actions';
 import Discussion from 'Views/Discussion';
 import Login from 'Views/Login';
 
@@ -19,10 +19,12 @@ class App extends React.Component {
   componentDidMount() {
     const {
       getHomeTabs,
+      getUserInfo,
     } = this.props;
 
     // get home tab list
     getHomeTabs();
+    getUserInfo();
   }
 
   render(){
@@ -52,5 +54,6 @@ export default connect(
     };},
   (dispatch) => { return {
     getHomeTabs: () => { dispatch(getHomeTabs()); },
+    getUserInfo: () => {dispatch(getUserInfo()); },
   };}
 )(App);

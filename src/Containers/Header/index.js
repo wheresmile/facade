@@ -51,7 +51,6 @@ Header.defaultProps = {
 export default connect(
   (state) => { 
     return {
-      user: state.user,
       tabs: state.app.tabs,
     }; 
   }

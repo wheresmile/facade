@@ -4,13 +4,15 @@ import {
   HOME_FETCHING_CHECKLIST_FAILURE, 
   HOME_FETCHING_CHECKLIST_SUCCESS,
   HOME_FETCHING_MOTTO_SUCCESS,
-  HOME_FETCHING_MOTTO_FAILURE
+  HOME_FETCHING_MOTTO_FAILURE,
+  HOME_FETCHING_USER_INFO_SUCCESS,
 } from './constants';
 
 import { 
   fetchHomeTabs,
   fetchHomeChecklists,
   fetchMotto,
+  fetchUserInfo,
 } from '../api';
 
 /**
@@ -54,6 +56,22 @@ export const getMotto = () => {
         dispatch({ type: HOME_FETCHING_MOTTO_SUCCESS, payload: data.data });
       },
       error => dispatch({ type: HOME_FETCHING_MOTTO_FAILURE })
+    )
+  }
+}
+
+export const getUserInfo = () => {
+  return (dispatch, getState) => {
+    let state = getState();
+    if (state.user.isLogged) {
+      return;
+    }
+    fetchUserInfo().then(
+      data => {
+        if (data.code === 200){
+          dispatch({ type: HOME_FETCHING_USER_INFO_SUCCESS, payload: data.data});
+        }
+      }
     )
   }
 }
