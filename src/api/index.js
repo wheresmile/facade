@@ -1,21 +1,37 @@
-import axios from 'axios';
+import request from './request';
 
 // 拉取首页 tab
-export const fetchHomeTabs = () => {
-  return axios.get('/api/v1/home/tabs');
-};
+export const fetchHomeTabs = (params) => {
+  return request({
+    url: '/v1/home/tabs',
+    method: 'get',
+    params
+  });
+}
 
 // 拉取清单
-export const fetchHomeChecklists = () => { 
-  return axios.get('/api/v1/home/checklists');
+export const fetchHomeChecklists = (params) => { 
+  return request({
+    url: '/v1/home/checklists',
+    method: 'get',
+    params
+  });
 }
 
 // 拉取 motto
-export const fetchMotto = () => {
-  return axios.get('/api/v1/motto');
+export const fetchMotto = (params) => {
+  return request({
+    url: '/v1/motto',
+    method: 'get',
+    params
+  });
 }
 
 // 登录
-export const postLoginForm = (loginForm) => {
-  return axios.post('/api/v1/auth/login', loginForm);
+export const postLoginForm = (data) => {
+  return request({
+    url: '/v1/auth/login',
+    method: 'post',
+    data,
+  });
 };

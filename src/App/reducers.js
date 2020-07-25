@@ -61,7 +61,7 @@ export const userReducer = (state = initialUserState, action) => {
     case HOME_FETCHING_USER_INFO_SUCCESS:  // 获取首页的标签
       return Object.assign({}, state, {
         info: action.payload,
-        isLogged: false,
+        isLogged: true,
       });
     
     default:

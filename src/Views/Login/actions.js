@@ -38,7 +38,7 @@ export const postLogin = () => {
       password: password,
     }).then(
       (data) => {
-        if (data.data.code === 200) {
+        if (data.code === 200) {
           return dispatch({
             type: USER_LOGIN_SUCCESS,
           })

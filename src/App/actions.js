@@ -19,10 +19,9 @@ import {
  */
 export const getHomeTabs = () => {
   return (dispatch, getState) => {
-
     fetchHomeTabs().then(
       data => {
-        dispatch({ type: HOME_FETCHING_TAB_SUCCESS, payload: data.data.data });
+        dispatch({ type: HOME_FETCHING_TAB_SUCCESS, payload: data.data });
       },
       error => dispatch({ type: HOME_FETCHING_TAB_FAILURE })
     );
@@ -36,7 +35,7 @@ export const getHomeChecklists = () => {
   return (dispatch, getState) => {
     fetchHomeChecklists().then(
       data => {
-        dispatch({ type: HOME_FETCHING_CHECKLIST_SUCCESS, payload: data.data.data });
+        dispatch({ type: HOME_FETCHING_CHECKLIST_SUCCESS, payload: data.data });
       },
       error => dispatch({ type: HOME_FETCHING_CHECKLIST_FAILURE })
     )
@@ -52,7 +51,7 @@ export const getMotto = () => {
     }
     fetchMotto().then(
       data => {
-        dispatch({ type: HOME_FETCHING_MOTTO_SUCCESS, payload: data.data.data });
+        dispatch({ type: HOME_FETCHING_MOTTO_SUCCESS, payload: data.data });
       },
       error => dispatch({ type: HOME_FETCHING_MOTTO_FAILURE })
     )
