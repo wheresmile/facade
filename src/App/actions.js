@@ -9,7 +9,7 @@ import {
 
 import { 
   fetchHomeTabs,
-  fetchChecklists,
+  fetchHomeChecklists,
   fetchMotto,
 } from '../api';
 
@@ -32,9 +32,9 @@ export const getHomeTabs = () => {
 /**
  * get checklists
  */
-export const getChecklists = () => {
+export const getHomeChecklists = () => {
   return (dispatch, getState) => {
-    fetchChecklists().then(
+    fetchHomeChecklists().then(
       data => {
         dispatch({ type: HOME_FETCHING_CHECKLIST_SUCCESS, payload: data.data.data });
       },

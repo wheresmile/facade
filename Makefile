@@ -1,4 +1,6 @@
-
+.PHONY: local_start
+local_start:
+	yarn start
 
 # zip
 .PHONY: zip

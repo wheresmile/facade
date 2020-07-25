@@ -2,12 +2,13 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import { appReducer } from "./reducers";
+import { appReducer, userReducer } from "./reducers";
 import { loginFormReducer } from 'Views/Login/reducers';
 
 // root reducer for app
 const rootReducer = combineReducers({
   app: appReducer,
+  user: userReducer,
   loginForm: loginFormReducer,
 });
 

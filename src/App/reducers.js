@@ -1,10 +1,10 @@
 import {
   HOME_FETCHING_TAB_SUCCESS, HOME_FETCHING_TAB_FAILURE, 
   HOME_FETCHING_CHECKLIST_SUCCESS, HOME_FETCHING_CHECKLIST_FAILURE, 
-  HOME_FETCHING_MOTTO_SUCCESS, HOME_FETCHING_MOTTO_FAILURE,
+  HOME_FETCHING_MOTTO_SUCCESS, HOME_FETCHING_MOTTO_FAILURE, HOME_FETCHING_USER_INFO_SUCCESS,
 } from './constants';
 
-const initialState = {
+const initialAppState = {
   fetchingForums: false,
   forums: null,
   currentForum: '首页',
@@ -12,7 +12,7 @@ const initialState = {
 };
 
 
-export const appReducer = (state = initialState, action) => {
+export const appReducer = (state = initialAppState, action) => {
   switch (action.type){
     case HOME_FETCHING_TAB_SUCCESS:  // 获取首页的标签
       return Object.assign({}, state, {
@@ -46,6 +46,23 @@ export const appReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: "拉取 Motto 失败",
       })
+    
+    default:
+      return state;
+  }
+}
+
+const initialUserState = {
+  isLogged: false,
+  info: null,
+}
+export const userReducer = (state = initialUserState, action) => {
+  switch (action.type){
+    case HOME_FETCHING_USER_INFO_SUCCESS:  // 获取首页的标签
+      return Object.assign({}, state, {
+        info: action.payload,
+        isLogged: false,
+      });
     
     default:
       return state;

@@ -8,7 +8,7 @@ import classnames from 'classnames';
 import SideBar from 'Components/Discussion/SideBar';
 import LinkButton from 'Components/Buttons/LinkButton';
 import { connect } from 'react-redux';
-import { getChecklists } from 'App/actions';
+import { getHomeChecklists } from 'App/actions';
 import FeedBox from 'Components/Discussion/FeedBox';
 import Header from 'Containers/Header';
 
@@ -58,6 +58,6 @@ export default connect(
     discussions: state.app.checklists,
   }; },
   (dispatch) => { return {
-    getHomeChecklists: () => { dispatch(getChecklists()); },
+    getHomeChecklists: () => { dispatch(getHomeChecklists()); },
   };}
 )(Discussion);
