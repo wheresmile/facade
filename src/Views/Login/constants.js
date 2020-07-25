@@ -1,7 +1,7 @@
-export const UPDATE_LOGIN_EMAIL = 'update_login_email';
-export const UPDATE_LOGIN_PASSWORD = 'update_login_password';
-export const UPDATE_LOGIN_MOCHA = 'update_login_mocha';
+export const USER_LOGIN_UPDATE_EMAIL = 'user_login_update_email';
+export const USER_LOGIN_UPDATE_PASSWORD = 'user_login_update_password';
+export const USER_LOGIN_UPDATE_MOCHA = 'user_login_update_mocha';
 
-export const LOGIN_SUCCESS = 'login_success';
-export const LOGIN_FAILURE = 'login_failure';
-export const CLEAR_LOGIN_FORM = 'clear_login_form';
+export const USER_LOGIN_SUCCESS = 'user_login_success';
+export const USER_LOGIN_FAILURE = 'user_login_failure';
+export const USER_LOGIN_CLEAR_FORM = 'user_login_clear_form';

@@ -1,10 +1,10 @@
 import {
-  FETCHING_HOME_TAB_SUCCESS, 
-  FETCHING_HOME_TAB_FAILURE, 
-  FETCHING_HOME_CHECKLIST_FAILURE, 
-  FETCHING_HOME_CHECKLIST_SUCCESS,
-  FETCHING_MOTTO_FAILURE,
-  FETCHING_MOTTO_SUCCESS
+  HOME_FETCHING_TAB_SUCCESS, 
+  HOME_FETCHING_TAB_FAILURE, 
+  HOME_FETCHING_CHECKLIST_FAILURE, 
+  HOME_FETCHING_CHECKLIST_SUCCESS,
+  HOME_FETCHING_MOTTO_SUCCESS,
+  HOME_FETCHING_MOTTO_FAILURE
 } from './constants';
 
 import { 
@@ -22,9 +22,9 @@ export const getHomeTabs = () => {
 
     fetchHomeTabs().then(
       data => {
-        dispatch({ type: FETCHING_HOME_TAB_SUCCESS, payload: data.data.data });
+        dispatch({ type: HOME_FETCHING_TAB_SUCCESS, payload: data.data.data });
       },
-      error => dispatch({ type: FETCHING_HOME_TAB_FAILURE })
+      error => dispatch({ type: HOME_FETCHING_TAB_FAILURE })
     );
   };
 };
@@ -36,9 +36,9 @@ export const getChecklists = () => {
   return (dispatch, getState) => {
     fetchChecklists().then(
       data => {
-        dispatch({ type: FETCHING_HOME_CHECKLIST_SUCCESS, payload: data.data.data });
+        dispatch({ type: HOME_FETCHING_CHECKLIST_SUCCESS, payload: data.data.data });
       },
-      error => dispatch({ type: FETCHING_HOME_CHECKLIST_FAILURE })
+      error => dispatch({ type: HOME_FETCHING_CHECKLIST_FAILURE })
     )
   }
 }
@@ -52,9 +52,9 @@ export const getMotto = () => {
     }
     fetchMotto().then(
       data => {
-        dispatch({ type: FETCHING_MOTTO_SUCCESS, payload: data.data.data });
+        dispatch({ type: HOME_FETCHING_MOTTO_SUCCESS, payload: data.data.data });
       },
-      error => dispatch({ type: FETCHING_MOTTO_FAILURE })
+      error => dispatch({ type: HOME_FETCHING_MOTTO_FAILURE })
     )
   }
 }
