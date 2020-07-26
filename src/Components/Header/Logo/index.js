@@ -9,7 +9,7 @@ class Logo extends React.Component {
         <Link to="" className={styles.logo}>
           <img className={styles.logo} src="./logo100.png" alt="logo"></img>
         </Link>
-        <div className={styles.logoTitle}>见周边</div>
+        <div className={styles.logoTitle}>万思没</div>
       </div>
     );
   }

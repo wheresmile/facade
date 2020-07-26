@@ -7,6 +7,7 @@ const initialState = {
   email: '',
   password: '',
   error: '',
+  hasLogged: false,
 };
 
 export const loginFormReducer = (state=initialState, action) => {
@@ -23,7 +24,7 @@ export const loginFormReducer = (state=initialState, action) => {
 
     case USER_LOGIN_SUCCESS:
       return Object.assign({}, state, {
-        hasLogin: true,
+        hasLogged: true,
       })
 
     case USER_LOGIN_FAILURE:

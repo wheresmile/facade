@@ -31,7 +31,7 @@ class Motto extends React.Component {
 }
 
 Motto.defaultProps = {
-  motto: { details: "今天可以做点什么有意义的事情？", source: "见周边"},
+  motto: { details: "今天可以做点什么有意义的事情？", source: "万思没"},
 }
 
 export default connect(

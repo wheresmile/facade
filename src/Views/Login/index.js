@@ -22,6 +22,7 @@ class Login extends React.Component {
   render() {
     const {
       loginForm,
+      hasLogged,
       updateLoginEmail,
       updateLoginPassword,
       postLogin,
@@ -29,13 +30,13 @@ class Login extends React.Component {
 
     return (
       <Fragment>
-        { loginForm.hasLogin && <Redirect to="/"></Redirect> }
+        { hasLogged && <Redirect to="/"></Redirect> }
         <SimpleHeader></SimpleHeader>
         <div className={classnames(appLayout.constraintWidth,styles.contentArea)}>
-          <div className={styles.nameHeader}>JianZhouBian.com</div>
+          <div className={styles.nameHeader}>WhereSmile.com</div>
           <div className={styles.bodyContent}>
             <div className={styles.leftContent}>
-              <p>见周边需要您的<a href="https://github.com/jianzhoubian" target="blank">贡献</a>。</p>
+              <p>WhereSmile(万思没)需要您的<a href="https://github.com/wheresmile" target="blank">贡献</a>。</p>
             </div>
             <div className={styles.rightContent}>
               {loginForm.error && <div>{loginForm.error}</div>}
@@ -71,6 +72,7 @@ export default connect(
   (state) => {
     return {
       loginForm: state.loginForm,
+      hasLogged: state.loginForm.hasLogged,
     };
   },
   (dispatch) => {
