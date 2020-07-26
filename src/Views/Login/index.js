@@ -7,7 +7,7 @@ import Button from "Components/Buttons/Button";
 import LinkButton from "Components/Buttons/LinkButton";
 import { connect } from "react-redux";
 import { updateLoginEmail, updateLoginPassword, postLogin, clearLoginForm } from "./actions";
-import { Redirect } from "react-router"
+import { withRouter } from "react-router"
 
 
 class Login extends React.Component {
@@ -22,15 +22,14 @@ class Login extends React.Component {
   render() {
     const {
       loginForm,
-      hasLogged,
       updateLoginEmail,
       updateLoginPassword,
       postLogin,
+      history,
     } = this.props;
 
     return (
       <Fragment>
-        { hasLogged && <Redirect to="/"></Redirect> }
         <SimpleHeader></SimpleHeader>
         <div className={classnames(appLayout.constraintWidth,styles.contentArea)}>
           <div className={styles.nameHeader}>WhereSmile.com</div>
@@ -53,7 +52,7 @@ class Login extends React.Component {
               <div className={styles.Button}>
                 <LinkButton link="/" description="取消"></LinkButton>
                 <div></div>
-                <Button type='outline' onClick={postLogin}>登录</Button>
+                <Button type='outline' onClick={()=>postLogin(history)}>登录</Button>
               </div>
             </div>
           </div>
@@ -72,15 +71,14 @@ export default connect(
   (state) => {
     return {
       loginForm: state.loginForm,
-      hasLogged: state.loginForm.hasLogged,
     };
   },
   (dispatch) => {
     return {
       updateLoginEmail: (value) => {dispatch(updateLoginEmail(value));},
       updateLoginPassword: (value) => {dispatch(updateLoginPassword(value));},
-      postLogin: () => {dispatch(postLogin());},
+      postLogin: (history) => {dispatch(postLogin(history));},
       clearLoginForm: () => {dispatch(clearLoginForm());},
     }
   }
-)(Login);
+)(withRouter(Login));

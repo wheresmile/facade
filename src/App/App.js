@@ -54,6 +54,6 @@ export default connect(
     };},
   (dispatch) => { return {
     getHomeTabs: () => { dispatch(getHomeTabs()); },
-    getUserInfo: () => {dispatch(getUserInfo()); },
+    getUserInfo: () => { dispatch(getUserInfo()); },
   };}
 )(App);

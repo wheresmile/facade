@@ -2,6 +2,7 @@ import {
   USER_LOGIN_UPDATE_EMAIL, USER_LOGIN_UPDATE_PASSWORD, 
   USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS, USER_LOGOUT_FAILURE } from "./constants"
 import { postLoginForm, postLogoutApi } from "api"
+import { getUserInfo } from "App/actions"
 
 
 export const updateLoginEmail = (value) => {
@@ -19,7 +20,7 @@ export const updateLoginPassword = (value) => {
   }
 }
 
-export const postLogin = () => {
+export const postLogin = (history) => {
   return (dispatch, getState) => {
     const {
       email,
@@ -39,9 +40,10 @@ export const postLogin = () => {
     }).then(
       (data) => {
         if (data.code === 200) {
-          return dispatch({
-            type: USER_LOGIN_SUCCESS,
-          })
+          dispatch({type: USER_LOGIN_SUCCESS});
+          history.push("/");
+          getUserInfo()(dispatch, getState);
+          return
         } else {
           return dispatch({
             type: USER_LOGIN_FAILURE,
