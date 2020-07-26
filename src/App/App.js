@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import { getHomeTabs, getUserInfo } from './actions';
 import Discussion from 'Views/Discussion';
 import SignIn from 'Views/Account/SignIn';
+import SignUp from 'Views/Account/SignUp';
 
 class App extends React.Component {
   componentDidMount() {
@@ -34,6 +35,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/"> <Discussion /> </Route>
             <Route path="/signin"> <SignIn /> </Route>
+            <Route path="/signup"> <SignUp /> </Route>
             <Route path="/checklist"> <Checklist /> </Route>
             <Route path="/motto"> <Motto /> </Route>
             <Route path="/user"> <Motto /> </Route>

@@ -1,6 +1,6 @@
 import { 
   USER_LOGIN_UPDATE_EMAIL, USER_LOGIN_UPDATE_PASSWORD, 
-  USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS, USER_LOGOUT_FAILURE } from "./constants"
+  USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS, USER_LOGOUT_FAILURE, USER_SIGNUP_UPDATE_INVITATION } from "./constants"
 import { postLoginForm, postLogoutApi } from "api"
 import { getUserInfo } from "App/actions"
 
@@ -17,6 +17,13 @@ export const updateLoginPassword = (value) => {
   return {
     type: USER_LOGIN_UPDATE_PASSWORD,
     payload: value
+  }
+}
+
+export const updateSignUpInvitation = (value) => {
+  return {
+    type: USER_SIGNUP_UPDATE_INVITATION,
+    payload: value,
   }
 }
 
