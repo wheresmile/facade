@@ -24,7 +24,7 @@ class Checklist extends React.Component {
     const { currentForum } = this.props;
     return (
       <Fragment>
-        <Header />
+        <Header renderTabs={true} />
         <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
           <div className={appLayout.primaryContent}>
             <ListBox></ListBox>

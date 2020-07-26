@@ -27,19 +27,24 @@ class Header extends React.Component {
   }
 
   render() {
+    const {
+      renderTabs,
+    } = this.props;
+
     return(
       <div className={classnames(appLayout.constraintWidth)}>
         <div className={styles.headerTop}>
           <Logo />
           <UserMenu />
         </div>
-        <NavigationBar navigationLinks={this.renderNavLinks()} />
+        {renderTabs &&  <NavigationBar navigationLinks={this.renderNavLinks()} />}
       </div>
     );
   }
 }
 
 Header.defaultProps = {
+  renderTabs: false,
   tabs: [
     {id:1, display_name: "首页", slug: ""},
     {id:2, display_name: "今日清单", slug: "checklist"},
