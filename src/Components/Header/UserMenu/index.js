@@ -7,6 +7,44 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class UserMenu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeSubMenu: false };
+    this.toggleSubMenu = this.toggleSubMenu.bind(this);
+  }
+
+  handleClickOutside() {
+    this.setState({ activeSubMenu: false });
+  }
+
+  toggleSubMenu() {
+    this.setState((prevState) => {
+      return { activeSubMenu: !prevState.activeSubMenu };
+    });
+  }
+
+  renderSubMenu() {
+    const { activeSubMenu } = this.state;
+
+    const {
+      isLogged,
+    } = this.props;
+
+    if (activeSubMenu) {
+      return (
+        <div className={styles.subMenu}>
+          <Button onClick={this.toggleSubMenu} alwaysActive>
+            <i className={classnames('fa fa-close')} aria-hidden="true"></i>
+          </Button>
+          { isLogged && <a className={styles.subMenuItem} href={"/api/auth/signout"}>设置</a> }
+          { isLogged && <a className={styles.subMenuItem} href={"/api/auth/signout"}>退出</a> }
+        </div>
+      );
+    }
+
+    return null;
+  }
+
   render(){
     const {
       userInfo,
@@ -15,10 +53,11 @@ class UserMenu extends React.Component {
 
     if (isLogged){
       return (
-        <div>
+        <div style={{ position: 'relative' }}>
           <div className={styles.container} onClick={this.toggleSubMenu}>
             <span className={styles.title}>{userInfo.nickname}</span>
           </div>
+          {this.renderSubMenu()}
         </div>
       );
     } else {
