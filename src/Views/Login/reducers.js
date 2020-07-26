@@ -1,6 +1,6 @@
 import { 
   USER_LOGIN_UPDATE_EMAIL, USER_LOGIN_UPDATE_PASSWORD, 
-  USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS } from "./constants";
+  USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS, USER_LOGOUT_FAILURE } from "./constants";
 
 
 const initialState = {
@@ -37,6 +37,13 @@ export const loginFormReducer = (state=initialState, action) => {
         password: '',
         error: '',
       })
+    
+    case USER_LOGOUT_SUCCESS:
+      return initialState;
+
+    case USER_LOGOUT_FAILURE:
+      return initialState;
+
     default:
       return state;
   }

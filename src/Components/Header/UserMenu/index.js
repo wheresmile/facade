@@ -3,8 +3,9 @@ import classnames from 'classnames';
 import styles from './styles.module.css';
 
 import Button from 'Components/Buttons/Button';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { postLogout } from 'Views/Login/actions';
 
 class UserMenu extends React.Component {
   constructor(props) {
@@ -28,6 +29,8 @@ class UserMenu extends React.Component {
 
     const {
       isLogged,
+      postLogout,
+      history,
     } = this.props;
 
     if (activeSubMenu) {
@@ -37,7 +40,7 @@ class UserMenu extends React.Component {
             <i className={classnames('fa fa-close')} aria-hidden="true"></i>
           </Button>
           { isLogged && <a className={styles.subMenuItem} href={"/api/auth/signout"}>设置</a> }
-          { isLogged && <a className={styles.subMenuItem} href={"/api/auth/signout"}>退出</a> }
+          { isLogged && <a className={styles.subMenuItem} href="/" onClick={(event)=>postLogout(history, event)}>退出</a> }
         </div>
       );
     }
@@ -80,5 +83,10 @@ export default connect(
       userInfo: state.user.info,
       isLogged: state.user.isLogged,
     }; 
+  },
+  (dispatch) => {
+    return {
+      postLogout: (history, event) => {dispatch(postLogout(history, event));},
+    }
   }
-)(UserMenu);
+)(withRouter(UserMenu));

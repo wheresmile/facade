@@ -36,6 +36,16 @@ export const postLoginForm = (data) => {
   });
 };
 
+// 退出
+export const postLogoutApi = (data) => {
+  return request({
+    url: '/v1/auth/logout',
+    method: 'post',
+    data,
+  });
+}
+
+// 拉取用户信息
 export const fetchUserInfo = (params) => {
   return request({
     url: '/v1/user/info',

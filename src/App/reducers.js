@@ -3,6 +3,7 @@ import {
   HOME_FETCHING_CHECKLIST_SUCCESS, HOME_FETCHING_CHECKLIST_FAILURE, 
   HOME_FETCHING_MOTTO_SUCCESS, HOME_FETCHING_MOTTO_FAILURE, HOME_FETCHING_USER_INFO_SUCCESS,
 } from './constants';
+import { USER_LOGOUT_SUCCESS, USER_LOGOUT_FAILURE } from 'Views/Login/constants';
 
 const initialAppState = {
   fetchingForums: false,
@@ -64,6 +65,11 @@ export const userReducer = (state = initialUserState, action) => {
         isLogged: true,
       });
     
+    case USER_LOGOUT_SUCCESS:
+      return initialUserState;
+    case USER_LOGOUT_FAILURE:
+      return initialUserState;
+      
     default:
       return state;
   }

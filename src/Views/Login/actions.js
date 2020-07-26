@@ -1,7 +1,7 @@
 import { 
   USER_LOGIN_UPDATE_EMAIL, USER_LOGIN_UPDATE_PASSWORD, 
-  USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS } from "./constants"
-import { postLoginForm } from "api"
+  USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS, USER_LOGOUT_FAILURE } from "./constants"
+import { postLoginForm, postLogoutApi } from "api"
 
 
 export const updateLoginEmail = (value) => {
@@ -61,5 +61,33 @@ export const postLogin = () => {
 export const clearLoginForm = () => {
   return {
     type: USER_LOGIN_CLEAR_FORM,
+  }
+}
+
+
+/**
+ * 退出登录
+ */
+export const postLogout = (history, event) => {
+  event.preventDefault();
+  
+  return (dispatch, getState) => {
+    postLogoutApi().then(
+      (data) => {
+        dispatch({
+          type: USER_LOGOUT_SUCCESS,
+        });
+        console.log(history);
+        history.push("/");
+        return;
+      },
+      (error) => {
+        return dispatch({
+          type: USER_LOGOUT_FAILURE,
+          payload: '后端接口意外错误', 
+        });
+      }
+    )
+    
   }
 }
