@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 
 import { getHomeTabs, getUserInfo } from './actions';
 import Discussion from 'Views/Discussion';
-import Login from 'Views/Login';
+import SignIn from 'Views/Account/SignIn';
 
 class App extends React.Component {
   componentDidMount() {
@@ -33,7 +33,7 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route exact path="/"> <Discussion /> </Route>
-            <Route path="/login"> <Login /> </Route>
+            <Route path="/signin"> <SignIn /> </Route>
             <Route path="/checklist"> <Checklist /> </Route>
             <Route path="/motto"> <Motto /> </Route>
             <Route path="/user"> <Motto /> </Route>

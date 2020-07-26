@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
 import { appReducer, userReducer } from "./reducers";
-import { loginFormReducer } from 'Views/Login/reducers';
+import { loginFormReducer } from 'Views/Account/reducers';
 
 // root reducer for app
 const rootReducer = combineReducers({

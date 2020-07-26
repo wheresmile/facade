@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import Button from 'Components/Buttons/Button';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postLogout } from 'Views/Login/actions';
+import { postLogout } from 'Views/Account/actions';
 
 class UserMenu extends React.Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class UserMenu extends React.Component {
     } else {
       return (
         <div className={styles.container}>
-          <Link to="/login">
+          <Link to="/signin">
             <Button alwaysActive className={classnames(styles.signInBtn, styles.title)}>
               注册/登录
             </Button>

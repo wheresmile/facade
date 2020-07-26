@@ -6,7 +6,7 @@ import appLayout from 'Shared/appLayout.module.css';
 import Button from "Components/Buttons/Button";
 import LinkButton from "Components/Buttons/LinkButton";
 import { connect } from "react-redux";
-import { updateLoginEmail, updateLoginPassword, postLogin, clearLoginForm } from "./actions";
+import { updateLoginEmail, updateLoginPassword, postLogin, clearLoginForm } from "../actions";
 import { withRouter } from "react-router"
 
 
@@ -50,7 +50,7 @@ class Login extends React.Component {
                 />
               </form>
               <div className={styles.Button}>
-                <LinkButton link="/" description="取消"></LinkButton>
+                <LinkButton link="/signup" description="去注册"></LinkButton>
                 <div></div>
                 <Button type='outline' onClick={()=>postLogin(history)}>登录</Button>
               </div>
