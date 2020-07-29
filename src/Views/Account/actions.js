@@ -136,7 +136,6 @@ export const postLogout = (history, event) => {
         dispatch({
           type: USER_LOGOUT_SUCCESS,
         });
-        console.log(history);
         history.push("/");
         return;
       },

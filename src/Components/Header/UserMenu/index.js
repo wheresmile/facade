@@ -12,9 +12,16 @@ class UserMenu extends React.Component {
     super(props);
     this.state = { activeSubMenu: false };
     this.toggleSubMenu = this.toggleSubMenu.bind(this);
+    this.clickListener = (event) => {
+      if (event.target 
+          && event.target instanceof HTMLElement 
+          && !event.target.closest("."+styles.container)) {
+        this.handleClickOutside(event);
+      }
+    }
   }
 
-  handleClickOutside() {
+  handleClickOutside(event) {
     this.setState({ activeSubMenu: false });
   }
 
@@ -22,6 +29,14 @@ class UserMenu extends React.Component {
     this.setState((prevState) => {
       return { activeSubMenu: !prevState.activeSubMenu };
     });
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.clickListener)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.clickListener);
   }
 
   renderSubMenu() {
