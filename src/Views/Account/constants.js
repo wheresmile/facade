@@ -3,6 +3,7 @@ export const USER_LOGIN_UPDATE_PASSWORD = 'user_login_update_password';
 export const USER_LOGIN_UPDATE_MOCHA = 'user_login_update_mocha';
 
 export const USER_SIGNUP_UPDATE_INVITATION = 'user_signup_update_invitation';
+export const USER_SIGNUP_UPDATE_NICKNAME = 'user_signup_update_nickname';
 
 export const USER_LOGIN_SUCCESS = 'user_login_success';
 export const USER_LOGIN_FAILURE = 'user_login_failure';

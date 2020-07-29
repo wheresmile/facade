@@ -27,6 +27,15 @@ export const fetchMotto = (params) => {
   });
 }
 
+// 注册
+export const postSignupForm = (data) => {
+  return request({
+    url: '/v1/auth/register',
+    method: 'post',
+    data,
+  });
+}
+
 // 登录
 export const postLoginForm = (data) => {
   return request({

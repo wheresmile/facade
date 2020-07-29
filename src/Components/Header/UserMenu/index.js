@@ -36,10 +36,9 @@ class UserMenu extends React.Component {
     if (activeSubMenu) {
       return (
         <div className={styles.subMenu}>
-          <Button onClick={this.toggleSubMenu} alwaysActive>
+          <Button onClick={this.toggleSubMenu} className={styles.subMenuClose} alwaysActive>
             <i className={classnames('fa fa-close')} aria-hidden="true"></i>
           </Button>
-          { isLogged && <a className={styles.subMenuItem} href={"/api/auth/signout"}>设置</a> }
           { isLogged && <a className={styles.subMenuItem} href="/" onClick={(event)=>postLogout(history, event)}>退出</a> }
         </div>
       );
