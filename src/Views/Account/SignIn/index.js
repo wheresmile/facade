@@ -53,7 +53,7 @@ class Login extends React.Component {
               </form>
 
               <div className={styles.Button}>
-                <LinkButton link="/signup" description="去注册"></LinkButton>
+                <LinkButton link="/signup" description="没有账户，去注册"></LinkButton>
                 <div></div>
                 <Button type='outline' onClick={()=>postLogin(history)}>登录</Button>
               </div>

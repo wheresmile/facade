@@ -29,7 +29,9 @@ class Discussion extends React.Component {
           <div className={appLayout.primaryContent}>
             <FeedBox></FeedBox>
             <div className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)}>
-              <LinkButton className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} />
+              <LinkButton className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} 
+                description="新建"
+              />
             </div>
             
           </div>

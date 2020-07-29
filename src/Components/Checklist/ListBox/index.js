@@ -5,6 +5,15 @@ import { connect } from 'react-redux';
 import ItemBox from '../ItemBox';
 
 class ListBox extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleInputChange.bind(this);
+  }
+  handleInputChange = (id, event) => {
+    console.log("jj", id, event);
+    event.target.checked=true;
+  }
+
   render() {
     const {
       loading,
@@ -18,7 +27,9 @@ class ListBox extends React.Component {
         { !loading &&
           <div className={styles.discussions}>
             { checklists && checklists.map(checklist => {
-              return (<ItemBox key={checklist.id} {...checklist}></ItemBox>);
+              return (<ItemBox key={checklist.id} 
+                checklist={checklist} 
+                onClick={(event) => this.handleInputChange(checklist.id, event)}></ItemBox>);
             })}
           </div>
         }

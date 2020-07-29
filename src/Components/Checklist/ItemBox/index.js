@@ -12,42 +12,45 @@ class ItemBox extends React.Component{
     event.target.checked=true;
   }
 
+  /**
+   * 渲染最后一个用户的打卡信息
+   * @param {*} lastReview 
+   */
+  lastReviewRender(lastReview) {
+    let lastReviewDom;
+    if (lastReview) {
+      let descriptionDom;
+      if (lastReview.description.length > 40){
+        descriptionDom = lastReview.description.substr(0, 40) + "..."
+      } else {
+        descriptionDom = lastReview.description
+      }
+      lastReviewDom = (<div>{lastReview.author_nickname}: {descriptionDom}</div>);
+    } else {
+      lastReviewDom = (<div></div>);
+    }
+    return lastReviewDom;
+  }
+
   render(){
     const {
-      id,
+      // id,
       description,
       checked_count,
       last_review,
       checked,
-    } = this.props;
-
-    let description_dom;
-    if (checked) {
-      description_dom = <s>{description}</s>;
-    } else {
-      description_dom = description;
-    }
+    } = this.props.checklist;
 
     // 渲染最后一个review的内容
-    let last_review_dom;
-    if (last_review) {
-      let description_dom;
-      if (last_review.description.length > 40){
-        description_dom = last_review.description.substr(0, 40) + "..."
-      } else {
-        description_dom = last_review.description
-      }
-      last_review_dom = (<div>{last_review.author_nickname}: {description_dom}</div>);
-    } else {
-      last_review_dom = (<div></div>);
-    }
+    let last_review_dom = this.lastReviewRender(last_review)
+    
     return (
-      <div className={styles.container}>
+      <div className={styles.container} onClick={this.props.onClick}>
         <div className={classnames(styles.title)}>
-          <input type="checkbox" className={styles.checkbox} defaultChecked={checked}
-          onChange={(event) => this.handleInputChange(id, event)}
-          ></input>
-          {description_dom}
+          {checked ? 
+            <i className="fa fa-check-square-o" aria-hidden="true"></i> 
+            : <i className="fa fa-square-o" aria-hidden="true"></i> }
+          <span className={styles.titleDesp}>{description}</span>
         </div>
         <div className={styles.boxFooter}>
           {last_review_dom}

@@ -29,7 +29,9 @@ class Checklist extends React.Component {
           <div className={appLayout.primaryContent}>
             <ListBox></ListBox>
             <div className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)}>
-              <LinkButton className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} />
+              <LinkButton className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} 
+                description="今日已有 10 人打卡"
+              />
             </div>
             
           </div>
