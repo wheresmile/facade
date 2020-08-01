@@ -12,9 +12,9 @@ import NotFound from 'Views/NotFound';
 import { connect } from 'react-redux';
 
 import { getHomeTabs, getUserInfo } from './actions';
-import Discussion from 'Views/Discussion';
 import SignIn from 'Views/Account/SignIn';
 import SignUp from 'Views/Account/SignUp';
+import ChecklistReview from 'Views/ChecklistReview';
 
 class App extends React.Component {
   componentDidMount() {
@@ -33,7 +33,7 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/"> <Discussion /> </Route>
+            <Route exact path="/"> <ChecklistReview /> </Route>
             <Route path="/signin"> <SignIn /> </Route>
             <Route path="/signup"> <SignUp /> </Route>
             <Route path="/checklist"> <Checklist /> </Route>

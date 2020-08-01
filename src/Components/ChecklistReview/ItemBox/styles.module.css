@@ -1,5 +1,6 @@
 @value primaryFontColor, secondaryFontColor, borderColor, backShade, smallBP from '~Shared/globalStyles.css';
 
+
 .container {
   display: flex;
   flex-direction: column;
@@ -8,16 +9,18 @@
   &:last-child { border-bottom: none; }
 }
 
-.title {
-  font-size: 18px;
-  font-weight: 300;
-  &:hover {
-    cursor: pointer;
-  }
+.authorTitle {
+  color: gray;
 }
 
-.titleDesp {
-  margin-left: 5px;
+.body {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.fiveMargin {
+  margin-right: 5px;
 }
 
 
@@ -35,15 +38,13 @@
   }
 }
 
-
-.checkbox {
-  margin-right: 10px;
-}
-
-.todayPunch {
-  text-align: right;
-  min-width: 100px;
-  @media smallBP {
-    text-align: left;
+.starCount {
+  &:hover{
+    cursor: pointer;
   }
 }
+
+
+
+
+

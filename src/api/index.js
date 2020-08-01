@@ -18,6 +18,15 @@ export const fetchHomeChecklists = (params) => {
   });
 }
 
+// 拉取清单阅评
+export const fetchAllChecklistReviews = (params) => {
+  return request({
+    url: '/v1/checklist_reviews',
+    method: 'get',
+    params
+  })
+}
+
 // 拉取 motto
 export const fetchMotto = (params) => {
   return request({

@@ -5,8 +5,7 @@ import appLayout from 'Shared/appLayout.module.css';
 import styles from './styles.module.css';
 import classnames from 'classnames';
 
-import SideBar from 'Components/Checklist/SideBar';
-import LinkButton from 'Components/Buttons/LinkButton';
+import SideBar from 'Components/ChecklistReview/SideBar';
 import { connect } from 'react-redux';
 import { getHomeChecklists } from 'App/actions';
 import ListBox from 'Components/Checklist/ListBox';
@@ -28,12 +27,6 @@ class Checklist extends React.Component {
         <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
           <div className={appLayout.primaryContent}>
             <ListBox></ListBox>
-            <div className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)}>
-              <LinkButton className={classnames(appLayout.showOnMediumBP, styles.newDiscussionBtn)} 
-                description="今日已有 10 人打卡"
-              />
-            </div>
-            
           </div>
           <div className={appLayout.secondaryContent}>
             <SideBar currentForum={currentForum} />

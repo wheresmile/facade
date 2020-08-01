@@ -60,7 +60,7 @@ class SignUp extends React.Component {
                 />
               </form>
 
-              <input key={'invitation'} type="text" placeholder={'邀请码（向管理员或已注册好友索取）'} value={loginForm.invitation || ""} 
+              <input key={'invitation'} type="text" placeholder={'邀请码（向已注册好友索取）'} value={loginForm.invitation || ""} 
               className={styles.inputCell}
               onChange={(event) => {updateSignUpInvitation(event.target.value);}}
               />

@@ -10,7 +10,6 @@ class ListBox extends React.Component {
     this.handleInputChange.bind(this);
   }
   handleInputChange = (id, event) => {
-    console.log("jj", id, event);
     event.target.checked=true;
   }
 

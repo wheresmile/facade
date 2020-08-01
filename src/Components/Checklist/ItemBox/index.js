@@ -45,8 +45,8 @@ class ItemBox extends React.Component{
     let last_review_dom = this.lastReviewRender(last_review)
     
     return (
-      <div className={styles.container} onClick={this.props.onClick}>
-        <div className={classnames(styles.title)}>
+      <div className={styles.container}>
+        <div className={classnames(styles.title)} onClick={this.props.onClick}>
           {checked ? 
             <i className="fa fa-check-square-o" aria-hidden="true"></i> 
             : <i className="fa fa-square-o" aria-hidden="true"></i> }

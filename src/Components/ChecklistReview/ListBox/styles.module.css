@@ -1,0 +1,9 @@
+@value borderColor, backShade, secondaryFontColor, primaryFontColor from '~Shared/globalStyles.css';
+
+
+.container {
+  margin-top: 20px;
+  border: 1px solid borderColor;
+
+  &:first-child { margin-top: 0px; }
+}

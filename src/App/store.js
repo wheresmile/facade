@@ -4,12 +4,14 @@ import thunk from 'redux-thunk';
 
 import { appReducer, userReducer } from "./reducers";
 import { loginFormReducer } from 'Views/Account/reducers';
+import { checklistReviewsReducer } from 'Views/ChecklistReview/reducers';
 
 // root reducer for app
 const rootReducer = combineReducers({
   app: appReducer,
   user: userReducer,
   loginForm: loginFormReducer,
+  checklistReviews: checklistReviewsReducer,
 });
 
 
