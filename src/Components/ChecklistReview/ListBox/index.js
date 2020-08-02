@@ -13,13 +13,17 @@ class ListBox extends React.Component {
   render() {
     const {
       reviewsList,
+      starCallBack,
     } = this.props;
     return (
       <div className={styles.container}>
         <div className={styles.reviews}>
           {reviewsList && reviewsList.map(review => {
-            return (<ItemBox key={review.review_id} review={review}
-            ></ItemBox>)
+            return (
+              <ItemBox key={review.review_id} 
+              review={review} 
+              starCallBack={starCallBack}
+              />)
           })}
         </div>
       </div>

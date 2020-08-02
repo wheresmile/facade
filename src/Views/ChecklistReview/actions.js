@@ -1,5 +1,5 @@
-import { fetchAllChecklistReviews } from "api";
-import { CHECKLIST_REVIEWS_FETCHING_SUCCESS, CHECKLIST_REVIEWS_FETCHING_FAILURE } from "./constants";
+import { fetchAllChecklistReviews, starChecklistReviewApi } from "api";
+import { CHECKLIST_REVIEWS_FETCHING_SUCCESS, CHECKLIST_REVIEWS_FETCHING_FAILURE, CHECKLIST_REVIEWS_THUMBON_FAILURE, CHECKLIST_REVIEWS_THUMBON_SUCCESS } from "./constants";
 
 export const getAllChecklistReviews = () => {
   return (dispatch, getState) => {
@@ -17,11 +17,22 @@ export const getAllChecklistReviews = () => {
 }
 
 
-export const startChecklistView = (review_id) => {
+export const starChecklistView = (review_id) => {
   return (dispatch, getState) => {
-    let params = {
+    let data = {
       review_id: review_id,
     }
+
+    starChecklistReviewApi(data).then(
+      data => {
+        if (data["code"] === 200) {
+          dispatch({ type: CHECKLIST_REVIEWS_THUMBON_SUCCESS, payload: data.data});
+        } else {
+          dispatch({ type: CHECKLIST_REVIEWS_THUMBON_FAILURE });
+        }
+      },
+      error => dispatch({ type: CHECKLIST_REVIEWS_THUMBON_FAILURE })
+    )
 
   }
 }

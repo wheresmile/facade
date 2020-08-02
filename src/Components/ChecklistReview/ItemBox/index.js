@@ -6,6 +6,7 @@ import styles from './styles.module.css';
 class ItemBox extends React.Component{
   render() {
     const {
+      starCallBack,
       review,
     } = this.props;
     return (
@@ -24,7 +25,7 @@ class ItemBox extends React.Component{
             {review.checklist.description}
           </div>
           
-          <div className={styles.starCount}>
+          <div className={styles.starCount} onClick={()=>starCallBack(review.review_id)}>
             <i className={classnames("fa fa-thumbs-o-up", styles.fiveMargin)} aria-hidden="true"></i>
             {review.star_count || 0}
           </div>

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { getAllChecklistReviews } from './actions';
+import { getAllChecklistReviews, starChecklistView } from './actions';
 
 import appLayout from 'Shared/appLayout.module.css';
 import styles from './styles.module.css';
@@ -23,6 +23,7 @@ class ChecklistReview extends React.Component {
   }
   render() {
     const {
+      starChecklistViewCB,
       ReviewsList,
     } = this.props;
 
@@ -31,7 +32,9 @@ class ChecklistReview extends React.Component {
         <Header renderTabs={true} />
         <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
           <div className={appLayout.primaryContent}>
-            <ListBox reviewsList={ReviewsList}></ListBox>
+            <ListBox reviewsList={ReviewsList} 
+              starCallBack={starChecklistViewCB}
+            />
           </div>
           <div className={appLayout.secondaryContent}>
             <SideBar></SideBar>
@@ -50,5 +53,6 @@ export default connect(
   }; },
   (dispatch) => { return {
     getAllChecklistReviews: () => { dispatch(getAllChecklistReviews()); },
+    starChecklistViewCB: (reviewID) => {dispatch(starChecklistView(reviewID))}
   };}
 )(ChecklistReview);

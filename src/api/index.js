@@ -27,6 +27,15 @@ export const fetchAllChecklistReviews = (params) => {
   })
 }
 
+// 点赞阅评
+export const starChecklistReviewApi = (data) => {
+  return request({
+    url: '/v1/checklist_reviews/star',
+    method: 'post',
+    data,
+  })
+}
+
 // 拉取 motto
 export const fetchMotto = (params) => {
   return request({
