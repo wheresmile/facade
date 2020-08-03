@@ -29,9 +29,9 @@ export const checklistReviewsReducer = (state=initialState, action) => {
       });
     
     case CHECKLIST_REVIEWS_THUMBON_SUCCESS:{
-      let reviewID = action.payload.review_id;
-      let starCount = action.payload.star_count;
-      state.ReviewsMap[reviewID].star_count = starCount;
+      let review = state.ReviewsMap[action.payload.review_id];
+      review.star_count = action.payload.star_count;
+      review.has_stared = action.payload.has_stared;
       return Object.assign({}, state, {
         ReviewsList: [...state.ReviewsList],
       })

@@ -9,6 +9,21 @@ class ItemBox extends React.Component{
       starCallBack,
       review,
     } = this.props;
+
+    let starCountDom;
+    if (review.has_stared) {
+      starCountDom = (
+        <div>{review.star_count || 0} 已点赞</div>
+      );
+    } else {
+      starCountDom = (
+        <div className={styles.starCount} onClick={()=>starCallBack(review.review_id)}>
+          <i className={classnames("fa fa-thumbs-o-up", styles.fiveMargin)} aria-hidden="true"></i>
+          {review.star_count || 0}
+        </div>
+      );
+    }
+
     return (
       <div className={styles.container}>
         <div className={classnames(styles.authorTitle)}>
@@ -25,10 +40,7 @@ class ItemBox extends React.Component{
             {review.checklist.description}
           </div>
           
-          <div className={styles.starCount} onClick={()=>starCallBack(review.review_id)}>
-            <i className={classnames("fa fa-thumbs-o-up", styles.fiveMargin)} aria-hidden="true"></i>
-            {review.star_count || 0}
-          </div>
+          {starCountDom}
         </div>
       </div>
     )

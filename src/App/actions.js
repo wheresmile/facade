@@ -35,6 +35,9 @@ export const getHomeTabs = () => {
  */
 export const getHomeChecklists = () => {
   return (dispatch, getState) => {
+    if (getState().app.checklists.length > 0) {
+      return;
+    }
     fetchHomeChecklists().then(
       data => {
         dispatch({ type: HOME_FETCHING_CHECKLIST_SUCCESS, payload: data.data });

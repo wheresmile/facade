@@ -20,6 +20,18 @@ export const getAllChecklistReviews = () => {
 
 export const starChecklistView = (review_id) => {
   return (dispatch, getState) => {
+    let state = getState();
+    let review = state.checklistReviews.ReviewsMap[review_id];
+    if (review.has_stared){
+      return;
+    }
+
+    console.log(state.user);
+    if (!state.user.isLogged) {
+      History.push("/signin");
+      return;
+    }
+
     let data = {
       review_id: review_id,
     }

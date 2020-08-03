@@ -9,6 +9,9 @@ const initialAppState = {
   fetchingForums: false,
   forums: null,
   currentForum: '首页',
+  tabs: [],
+  checklists: [],
+  motto: null,
   error: false,
 };
 
