@@ -1,5 +1,6 @@
 import { fetchAllChecklistReviews, starChecklistReviewApi } from "api";
 import { CHECKLIST_REVIEWS_FETCHING_SUCCESS, CHECKLIST_REVIEWS_FETCHING_FAILURE, CHECKLIST_REVIEWS_THUMBON_FAILURE, CHECKLIST_REVIEWS_THUMBON_SUCCESS } from "./constants";
+import History from "App/history";
 
 export const getAllChecklistReviews = () => {
   return (dispatch, getState) => {
@@ -27,7 +28,8 @@ export const starChecklistView = (review_id) => {
       data => {
         if (data["code"] === 200) {
           dispatch({ type: CHECKLIST_REVIEWS_THUMBON_SUCCESS, payload: data.data});
-        } else {
+        } else if (data["code"] === 401) {
+          History.push("/signin");
           dispatch({ type: CHECKLIST_REVIEWS_THUMBON_FAILURE });
         }
       },

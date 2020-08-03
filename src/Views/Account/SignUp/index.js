@@ -7,7 +7,6 @@ import Button from "Components/Buttons/Button";
 import LinkButton from "Components/Buttons/LinkButton";
 import { connect } from "react-redux";
 import { updateLoginEmail, updateLoginPassword, clearLoginForm, updateSignUpInvitation, updateSignUpNickname, postSignup } from "../actions";
-import { withRouter } from "react-router"
 
 
 class SignUp extends React.Component {
@@ -27,7 +26,6 @@ class SignUp extends React.Component {
       updateLoginPassword,
       updateSignUpInvitation,
       postSignup,
-      history,
     } = this.props;
 
     return (
@@ -68,7 +66,7 @@ class SignUp extends React.Component {
               <div className={styles.Button}>
                 <LinkButton link="/signin" description="已有账户，去登录"></LinkButton>
                 <div></div>
-                <Button type='outline' onClick={()=>postSignup(history)}>注册</Button>
+                <Button type='outline' onClick={postSignup}>注册</Button>
               </div>
 
               {loginForm.error && <div className={styles.errorMsg}>{loginForm.error}</div>}
@@ -97,8 +95,8 @@ export default connect(
       updateLoginEmail: (value) => {dispatch(updateLoginEmail(value));},
       updateLoginPassword: (value) => {dispatch(updateLoginPassword(value));},
       updateSignUpInvitation: (value) => {dispatch(updateSignUpInvitation(value))},
-      postSignup: (history) => {dispatch(postSignup(history));},
+      postSignup: () => {dispatch(postSignup());},
       clearLoginForm: () => {dispatch(clearLoginForm());},
     }
   }
-)(withRouter(SignUp));
+)(SignUp);

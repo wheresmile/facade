@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
 } from "react-router-dom";
@@ -15,6 +15,7 @@ import { getHomeTabs, getUserInfo } from './actions';
 import SignIn from 'Views/Account/SignIn';
 import SignUp from 'Views/Account/SignUp';
 import ChecklistReview from 'Views/ChecklistReview';
+import History from './history';
 
 class App extends React.Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ class App extends React.Component {
 
   render(){
     return (
-      <Router>
+      <Router history={History}>
         <div className="App">
           <Switch>
             <Route exact path="/"> <ChecklistReview /> </Route>

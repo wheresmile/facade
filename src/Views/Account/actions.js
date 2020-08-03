@@ -3,6 +3,7 @@ import {
   USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS, USER_LOGOUT_FAILURE, USER_SIGNUP_UPDATE_INVITATION, USER_SIGNUP_UPDATE_NICKNAME } from "./constants"
 import { postLoginForm, postLogoutApi, postSignupForm } from "api"
 import { getUserInfo } from "App/actions"
+import History from "App/history"
 
 
 export const updateLoginEmail = (value) => {
@@ -33,7 +34,7 @@ export const updateSignUpInvitation = (value) => {
   }
 }
 
-export const postSignup = (history) => {
+export const postSignup = () => {
   return (dispatch, getState) => {
     const {
       nickname,
@@ -59,7 +60,7 @@ export const postSignup = (history) => {
       (data) => {
         if (data.code === 200) {
           dispatch({type: USER_LOGIN_CLEAR_FORM});
-          history.push("/signin");
+          History.push("/signin");
           return
         } else {
           return dispatch({
@@ -77,7 +78,7 @@ export const postSignup = (history) => {
   }
 }
 
-export const postLogin = (history) => {
+export const postLogin = () => {
   return (dispatch, getState) => {
     const {
       email,
@@ -98,7 +99,7 @@ export const postLogin = (history) => {
       (data) => {
         if (data.code === 200) {
           dispatch({type: USER_LOGIN_SUCCESS});
-          history.push("/");
+          History.push("/");
           getUserInfo()(dispatch, getState);
           return
         } else {
@@ -127,7 +128,7 @@ export const clearLoginForm = () => {
 /**
  * 退出登录
  */
-export const postLogout = (history, event) => {
+export const postLogout = (event) => {
   event.preventDefault();
   
   return (dispatch, getState) => {
@@ -136,7 +137,7 @@ export const postLogout = (history, event) => {
         dispatch({
           type: USER_LOGOUT_SUCCESS,
         });
-        history.push("/");
+        History.push("/");
         return;
       },
       (error) => {

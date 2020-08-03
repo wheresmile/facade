@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import styles from './styles.module.css';
 
 import Button from 'Components/Buttons/Button';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postLogout } from 'Views/Account/actions';
 
@@ -45,7 +45,6 @@ class UserMenu extends React.Component {
     const {
       isLogged,
       postLogout,
-      history,
     } = this.props;
 
     if (activeSubMenu) {
@@ -54,7 +53,7 @@ class UserMenu extends React.Component {
           <Button onClick={this.toggleSubMenu} className={styles.subMenuClose} alwaysActive>
             <i className={classnames('fa fa-close')} aria-hidden="true"></i>
           </Button>
-          { isLogged && <a className={styles.subMenuItem} href="/" onClick={(event)=>postLogout(history, event)}>退出</a> }
+          { isLogged && <a className={styles.subMenuItem} href="/" onClick={postLogout}>退出</a> }
         </div>
       );
     }
@@ -100,7 +99,7 @@ export default connect(
   },
   (dispatch) => {
     return {
-      postLogout: (history, event) => {dispatch(postLogout(history, event));},
+      postLogout: (event) => {dispatch(postLogout(event));},
     }
   }
-)(withRouter(UserMenu));
+)(UserMenu);
