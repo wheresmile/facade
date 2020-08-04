@@ -10,7 +10,7 @@ const initialState = {
   hasLogged: false,
 };
 
-export const loginFormReducer = (state=initialState, action) => {
+export const accountFormReducer = (state=initialState, action) => {
   switch (action.type) {
     case USER_LOGIN_UPDATE_EMAIL:
       return Object.assign({}, state, {

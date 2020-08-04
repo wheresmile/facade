@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { getAllChecklistReviews, starChecklistView } from './actions';
+import { getAllChecklistReviews, starChecklistView } from 'redux/checklistReview/actions';
 
 import appLayout from 'Shared/appLayout.module.css';
 import styles from './styles.module.css';

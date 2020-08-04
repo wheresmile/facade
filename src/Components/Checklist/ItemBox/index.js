@@ -56,14 +56,12 @@ class ItemBox extends React.Component{
           {last_review_dom}
           <div className={styles.todayPunch}>今日 {checked_count} 人打卡</div>
         </div>
+        <div>
+          提交表单
+        </div>
       </div>
     )
   }
-}
-
-ItemBox.defaultProps = {
-  description: "描述",
-  checked_count: 1,
 }
 
 export default ItemBox;

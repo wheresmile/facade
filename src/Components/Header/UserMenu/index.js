@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import Button from 'Components/Buttons/Button';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postLogout } from 'Views/Account/actions';
+import { postLogout } from 'redux/account/actions';
 
 class UserMenu extends React.Component {
   constructor(props) {

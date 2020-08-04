@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import styles from './styles.module.css';
 import SimpleHeader from 'Components/Header/SimpleHeader';
 import { connect } from 'react-redux';
-import { getMotto } from 'App/actions';
+import { getMotto } from 'redux/app/actions';
 
 class Motto extends React.Component {
   componentDidMount() {

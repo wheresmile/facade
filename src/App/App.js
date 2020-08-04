@@ -11,11 +11,12 @@ import Checklist from 'Views/Checklist';
 import NotFound from 'Views/NotFound';
 import { connect } from 'react-redux';
 
-import { getHomeTabs, getUserInfo } from './actions';
 import SignIn from 'Views/Account/SignIn';
 import SignUp from 'Views/Account/SignUp';
 import ChecklistReview from 'Views/ChecklistReview';
 import History from './history';
+import { getHomeTabs } from 'redux/app/actions';
+import { getUserInfo } from 'redux/user/actions';
 
 class App extends React.Component {
   componentDidMount() {

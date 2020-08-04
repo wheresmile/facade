@@ -1,5 +1,8 @@
 import { fetchAllChecklistReviews, starChecklistReviewApi } from "api";
-import { CHECKLIST_REVIEWS_FETCHING_SUCCESS, CHECKLIST_REVIEWS_FETCHING_FAILURE, CHECKLIST_REVIEWS_THUMBON_FAILURE, CHECKLIST_REVIEWS_THUMBON_SUCCESS } from "./constants";
+import { 
+  CHECKLIST_REVIEWS_FETCHING_SUCCESS, CHECKLIST_REVIEWS_FETCHING_FAILURE, 
+  CHECKLIST_REVIEWS_THUMBON_FAILURE, CHECKLIST_REVIEWS_THUMBON_SUCCESS 
+} from "./constants";
 import History from "App/history";
 
 export const getAllChecklistReviews = () => {

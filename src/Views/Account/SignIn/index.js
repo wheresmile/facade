@@ -6,21 +6,25 @@ import appLayout from 'Shared/appLayout.module.css';
 import Button from "Components/Buttons/Button";
 import LinkButton from "Components/Buttons/LinkButton";
 import { connect } from "react-redux";
-import { updateLoginEmail, updateLoginPassword, postLogin, clearLoginForm } from "../actions";
+import { 
+  updateLoginEmail, updateLoginPassword, 
+  postLogin, clearAccountForm 
+} from "redux/account/actions";
+import { Redirect } from "react-router";
 
 
 class Login extends React.Component {
 
   componentWillUnmount(){
     const {
-      clearLoginForm,
+      clearAccountForm,
     } = this.props;
-    clearLoginForm();
+    clearAccountForm();
   }
 
   render() {
     const {
-      loginForm,
+      accountForm,
       updateLoginEmail,
       updateLoginPassword,
       postLogin,
@@ -29,6 +33,9 @@ class Login extends React.Component {
     return (
       <Fragment>
         <SimpleHeader></SimpleHeader>
+        {accountForm.hasLogged &&
+          <Redirect to={{pathname: "/"}}></Redirect>
+        }
         <div className={classnames(appLayout.constraintWidth,styles.contentArea)}>
           <div className={styles.nameHeader}>WhereSmile.com</div>
           <div className={styles.bodyContent}>
@@ -38,13 +45,13 @@ class Login extends React.Component {
             <div className={styles.rightContent}>
               <div className={styles.formTitle}>登录</div>
               
-              <input key={'email'} type="text" placeholder={'邮箱'} value={loginForm.email} 
+              <input key={'email'} type="text" placeholder={'邮箱'} value={accountForm.email} 
               className={styles.inputCell}
               onChange={(event) => {updateLoginEmail(event.target.value);}}
               />
 
               <form>
-                <input key={'password'} type="password" placeholder={'密码'} autoComplete="off" value={loginForm.password}
+                <input key={'password'} type="password" placeholder={'密码'} autoComplete="off" value={accountForm.password}
                 className={styles.inputCell}
                 onChange={(event) => {updateLoginPassword(event.target.value);}}
                 />
@@ -56,7 +63,7 @@ class Login extends React.Component {
                 <Button type='outline' onClick={postLogin}>登录</Button>
               </div>
 
-              {loginForm.error && <div className={styles.errorMsg}>{loginForm.error}</div>}
+              {accountForm.error && <div className={styles.errorMsg}>{accountForm.error}</div>}
             </div>
           </div>
           
@@ -66,14 +73,10 @@ class Login extends React.Component {
   }
 }
 
-Login.defaultProps = {
-  loginForm: {email:""},
-}
-
 export default connect(
   (state) => {
     return {
-      loginForm: state.loginForm,
+      accountForm: state.accountForm,
     };
   },
   (dispatch) => {
@@ -81,7 +84,7 @@ export default connect(
       updateLoginEmail: (value) => {dispatch(updateLoginEmail(value));},
       updateLoginPassword: (value) => {dispatch(updateLoginPassword(value));},
       postLogin: () => {dispatch(postLogin());},
-      clearLoginForm: () => {dispatch(clearLoginForm());},
+      clearAccountForm: () => {dispatch(clearAccountForm());},
     }
   }
 )(Login);

@@ -2,7 +2,6 @@ import {
   USER_LOGIN_UPDATE_EMAIL, USER_LOGIN_UPDATE_PASSWORD, 
   USER_LOGIN_FAILURE, USER_LOGIN_CLEAR_FORM, USER_LOGIN_SUCCESS, USER_LOGOUT_SUCCESS, USER_LOGOUT_FAILURE, USER_SIGNUP_UPDATE_INVITATION, USER_SIGNUP_UPDATE_NICKNAME } from "./constants"
 import { postLoginForm, postLogoutApi, postSignupForm } from "api"
-import { getUserInfo } from "App/actions"
 import History from "App/history"
 
 
@@ -41,7 +40,7 @@ export const postSignup = () => {
       email,
       password,
       invitation,
-    } = getState().loginForm;
+    } = getState().accountForm;
 
     var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
     if (!reg.test(email)) {
@@ -83,7 +82,7 @@ export const postLogin = () => {
     const {
       email,
       password,
-    } = getState().loginForm;
+    } = getState().accountForm;
 
     var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
     if (!reg.test(email)) {
@@ -100,7 +99,7 @@ export const postLogin = () => {
         if (data.code === 200) {
           dispatch({type: USER_LOGIN_SUCCESS});
           History.push("/");
-          getUserInfo()(dispatch, getState);
+          window.location.reload();
           return
         } else {
           return dispatch({
@@ -118,7 +117,7 @@ export const postLogin = () => {
   }
 }
 
-export const clearLoginForm = () => {
+export const clearAccountForm = () => {
   return {
     type: USER_LOGIN_CLEAR_FORM,
   }
@@ -138,6 +137,7 @@ export const postLogout = (event) => {
           type: USER_LOGOUT_SUCCESS,
         });
         History.push("/");
+        window.location.reload();
         return;
       },
       (error) => {

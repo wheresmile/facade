@@ -6,21 +6,25 @@ import appLayout from 'Shared/appLayout.module.css';
 import Button from "Components/Buttons/Button";
 import LinkButton from "Components/Buttons/LinkButton";
 import { connect } from "react-redux";
-import { updateLoginEmail, updateLoginPassword, clearLoginForm, updateSignUpInvitation, updateSignUpNickname, postSignup } from "../actions";
+import { 
+  updateLoginEmail, updateLoginPassword, 
+  clearAccountForm, updateSignUpInvitation, 
+  updateSignUpNickname, postSignup 
+} from "redux/account/actions";
 
 
 class SignUp extends React.Component {
 
   componentWillUnmount(){
     const {
-      clearLoginForm,
+      clearAccountForm,
     } = this.props;
-    clearLoginForm();
+    clearAccountForm();
   }
 
   render() {
     const {
-      loginForm,
+      accountForm,
       updateSignUpNickname,
       updateLoginEmail,
       updateLoginPassword,
@@ -41,24 +45,24 @@ class SignUp extends React.Component {
 
               <div className={styles.formTitle}>注册</div>
 
-              <input key={'nickname'} type="text" placeholder={'昵称'} value={loginForm.nickname || ''} 
+              <input key={'nickname'} type="text" placeholder={'昵称'} value={accountForm.nickname || ''} 
               className={styles.inputCell}
               onChange={(event) => {updateSignUpNickname(event.target.value);}}
               />
 
-              <input key={'email'} type="text" placeholder={'邮箱'} value={loginForm.email} 
+              <input key={'email'} type="text" placeholder={'邮箱'} value={accountForm.email} 
               className={styles.inputCell}
               onChange={(event) => {updateLoginEmail(event.target.value);}}
               />
 
               <form>
-                <input key={'password'} type="password" placeholder={'密码'} autoComplete="off" value={loginForm.password}
+                <input key={'password'} type="password" placeholder={'密码'} autoComplete="off" value={accountForm.password}
                 className={styles.inputCell}
                 onChange={(event) => {updateLoginPassword(event.target.value);}}
                 />
               </form>
 
-              <input key={'invitation'} type="text" placeholder={'邀请码（向已注册好友索取）'} value={loginForm.invitation || ""} 
+              <input key={'invitation'} type="text" placeholder={'邀请码（向已注册好友索取）'} value={accountForm.invitation || ""} 
               className={styles.inputCell}
               onChange={(event) => {updateSignUpInvitation(event.target.value);}}
               />
@@ -69,7 +73,7 @@ class SignUp extends React.Component {
                 <Button type='outline' onClick={postSignup}>注册</Button>
               </div>
 
-              {loginForm.error && <div className={styles.errorMsg}>{loginForm.error}</div>}
+              {accountForm.error && <div className={styles.errorMsg}>{accountForm.error}</div>}
             </div>
           </div>
           
@@ -79,14 +83,10 @@ class SignUp extends React.Component {
   }
 }
 
-SignUp.defaultProps = {
-  loginForm: {email:""},
-}
-
 export default connect(
   (state) => {
     return {
-      loginForm: state.loginForm,
+      accountForm: state.accountForm,
     };
   },
   (dispatch) => {
@@ -96,7 +96,7 @@ export default connect(
       updateLoginPassword: (value) => {dispatch(updateLoginPassword(value));},
       updateSignUpInvitation: (value) => {dispatch(updateSignUpInvitation(value))},
       postSignup: () => {dispatch(postSignup());},
-      clearLoginForm: () => {dispatch(clearLoginForm());},
+      clearAccountForm: () => {dispatch(clearAccountForm());},
     }
   }
 )(SignUp);

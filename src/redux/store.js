@@ -2,15 +2,18 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import { appReducer, userReducer } from "./reducers";
-import { loginFormReducer } from 'Views/Account/reducers';
-import { checklistReviewsReducer } from 'Views/ChecklistReview/reducers';
+import { checklistReviewsReducer } from 'redux/checklistReview/reducers';
+import { appReducer } from './app/reducers';
+import { userReducer } from './user/reducers';
+import { checklistReducer } from './checklist/reducers';
+import { accountFormReducer } from './account/reducers';
 
 // root reducer for app
 const rootReducer = combineReducers({
   app: appReducer,
+  checklists: checklistReducer,
   user: userReducer,
-  loginForm: loginFormReducer,
+  accountForm: accountFormReducer,
   checklistReviews: checklistReviewsReducer,
 });
 
