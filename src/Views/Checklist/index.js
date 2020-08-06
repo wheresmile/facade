@@ -8,7 +8,7 @@ import SideBar from 'Components/ChecklistReview/SideBar';
 import { connect } from 'react-redux';
 import ListBox from 'Components/Checklist/ListBox';
 import Header from 'Containers/Header';
-import { getHomeChecklists } from 'redux/checklist/actions';
+import { getHomeChecklists, updateChecklistReviewChecklistID, updateChecklistReviewDetail } from 'redux/checklist/actions';
 
 class Checklist extends React.Component {
   componentDidMount() {
@@ -42,5 +42,7 @@ export default connect(
   }; },
   (dispatch) => { return {
     getHomeChecklists: () => { dispatch(getHomeChecklists()); },
+    updateChecklistReviewChecklistID: (value) => { updateChecklistReviewChecklistID(value); },
+    updateChecklistReviewDetail: (value) => { updateChecklistReviewDetail(value); },
   };}
 )(Checklist);

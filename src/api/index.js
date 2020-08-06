@@ -18,6 +18,15 @@ export const fetchHomeChecklists = (params) => {
   });
 }
 
+// 添加阅评
+export const postChecklistReviewApi = (data) => {
+  return request({
+    url: '/v1/checklists/review',
+    method: 'post',
+    data,
+  })
+}
+
 // 拉取清单阅评
 export const fetchAllChecklistReviews = (params) => {
   return request({

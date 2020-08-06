@@ -18,12 +18,28 @@ class Motto extends React.Component {
       motto
     } = this.props;
 
+    let mottoBody;
+    if (motto) {
+      mottoBody = (
+        <Fragment>
+          <div className={styles.MottoSentence}>{motto.details}</div>
+          <div className={styles.MottoSource}>—— {motto.source}</div>
+        </Fragment>
+      )
+    } else {
+      mottoBody = (
+        <Fragment>
+          <div className={styles.MottoSentence}>今天可以做点什么有意义的事情？</div>
+          <div className={styles.MottoSource}>万思没</div>
+        </Fragment>
+      )
+    }
+
     return (
       <Fragment>
         <SimpleHeader></SimpleHeader>
         <header className={styles.MottoHeader}>
-          <div className={styles.MottoSentence}>{motto.details}</div>
-          <div className={styles.MottoSource}>—— {motto.source}</div>
+          {mottoBody}
         </header>
       </Fragment>
     );

@@ -1,8 +1,12 @@
-import { HOME_FETCHING_CHECKLIST_SUCCESS, HOME_FETCHING_CHECKLIST_FAILURE } from "./constants";
+import { 
+  HOME_FETCHING_CHECKLIST_SUCCESS, HOME_FETCHING_CHECKLIST_FAILURE, CHECKLIST_REVIEW_UPDATE_DETAIL, CHECKLIST_REVIEW_UPDATE_CHECKLIST_ID, CHECKLIST_REVIEW_POST_SUCCESS, CHECKLIST_REVIEW_POST_FAILURE, CHECKLIST_REVIEW_POST_CANCEL,  
+} from "./constants";
 
 
 const initialChecklistState = {
   listInHome: [],
+  reviewFormID: null,
+  reviewFormDetial: "",
   error: null,
 };
 
@@ -19,6 +23,28 @@ export const checklistReducer = (state = initialChecklistState, action) => {
       return Object.assign({}, state, {
         error: "拉取清单失败",
       }); 
+
+    case CHECKLIST_REVIEW_UPDATE_CHECKLIST_ID:
+      return Object.assign({}, state, {
+        reviewFormID: action.payload,
+      });
+
+    case CHECKLIST_REVIEW_UPDATE_DETAIL:
+      return Object.assign({}, state, {
+        reviewFormDetial: action.payload,
+      });
+    
+    case CHECKLIST_REVIEW_POST_FAILURE:
+      return Object.assign({}, state, {
+        error: "更新失败😭",
+      });
+
+    case CHECKLIST_REVIEW_POST_CANCEL:
+    case CHECKLIST_REVIEW_POST_SUCCESS:
+      return Object.assign({}, state, {
+        reviewFormID: null,
+        reviewFormDetial: "",
+      });
 
     default:
       return state;
