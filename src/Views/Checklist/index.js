@@ -8,7 +8,7 @@ import SideBar from 'Components/ChecklistReview/SideBar';
 import { connect } from 'react-redux';
 import ListBox from 'Components/Checklist/ListBox';
 import Header from 'Containers/Header';
-import { getHomeChecklists, updateChecklistReviewChecklistID, updateChecklistReviewDetail } from 'redux/checklist/actions';
+import { getHomeChecklists, updateChecklistReviewChecklistID, updateChecklistReviewDetail, addChecklistReview } from 'redux/checklist/actions';
 
 class Checklist extends React.Component {
   componentDidMount() {
@@ -19,13 +19,26 @@ class Checklist extends React.Component {
   }
 
   render() {
-    const { checklists } = this.props;
+    const { 
+      checklists,
+      reviewFormID,
+      reviewFormDetial,
+      updateChecklistReviewChecklistID,
+      updateChecklistReviewDetail,
+      addChecklistReview,
+    } = this.props;
     return (
       <Fragment>
         <Header renderTabs={true} />
         <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
           <div className={appLayout.primaryContent}>
-            <ListBox checklists={checklists}></ListBox>
+            <ListBox checklists={checklists}
+              reviewFormID={reviewFormID}
+              reviewFormDetial={reviewFormDetial}
+              updateChecklistReviewChecklistID={updateChecklistReviewChecklistID}
+              updateChecklistReviewDetail={updateChecklistReviewDetail}
+              addChecklistReview={addChecklistReview}
+            ></ListBox>
           </div>
           <div className={appLayout.secondaryContent}>
             <SideBar />
@@ -39,10 +52,13 @@ class Checklist extends React.Component {
 export default connect(
   (state) => {return {
     checklists: state.checklists.listInHome,
+    reviewFormID: state.checklists.reviewFormID,
+    reviewFormDetial: state.checklists.reviewFormDetial,
   }; },
   (dispatch) => { return {
     getHomeChecklists: () => { dispatch(getHomeChecklists()); },
-    updateChecklistReviewChecklistID: (value) => { updateChecklistReviewChecklistID(value); },
-    updateChecklistReviewDetail: (value) => { updateChecklistReviewDetail(value); },
+    updateChecklistReviewChecklistID: (value) => { dispatch(updateChecklistReviewChecklistID(value)); },
+    updateChecklistReviewDetail: (value) => { dispatch(updateChecklistReviewDetail(value)); },
+    addChecklistReview: () => { dispatch(addChecklistReview()); }
   };}
 )(Checklist);

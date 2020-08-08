@@ -17,13 +17,13 @@ class Button extends React.Component {
     return (
       <button onClick={onClick}
         className={classnames(
+          className,
           style.button,
           styles.buttonDefaults,
           styles[type],
           fullWidth && styles.fullWidth,
           noUppercase && styles.noUppercase,
           alwaysActive && styles.alwaysActive,
-          className
         )}
 
         style={style}
