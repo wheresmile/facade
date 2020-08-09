@@ -6,6 +6,7 @@ import {
   CHECKLIST_REVIEW_POST_SUCCESS
 } from "./constants";
 import { postChecklistReviewApi, fetchHomeChecklists } from "api";
+import History from "App/history";
 
 
 /**
@@ -31,27 +32,39 @@ export const getHomeChecklists = () => {
  */
 
 export const updateChecklistReviewChecklistID = (value) => {
-  return {
-    type: CHECKLIST_REVIEW_UPDATE_CHECKLIST_ID,
-    payload: value
-  };
+  return (dispatch, getState) => {
+    if (!getState().user.isLogged) {
+      History.push("/signin");
+      return;
+    }
+    dispatch({type: CHECKLIST_REVIEW_UPDATE_CHECKLIST_ID,payload: value});
+  }
 }
 
 export const updateChecklistReviewDetail = (value) => {
-  return {
-    type: CHECKLIST_REVIEW_UPDATE_DETAIL,
-    payload: value
-  };
+  return (dispatch, getState) => {
+    if (!getState().user.isLogged) {
+      History.push("/signin");
+      return;
+    }
+    dispatch({type: CHECKLIST_REVIEW_UPDATE_DETAIL,payload: value});
+  }
 }
 
 export const addChecklistReview = () => {
-  console.log("jj")
   return (dispatch, getState) => {
-    let ChecklistID = getState().checklists.reviewFormID;
-    let detail = getState().checklists.reviewFormDetial;
+    let state = getState();
+    let ChecklistID = state.checklists.reviewFormID;
+    let detail = state.checklists.reviewFormDetial;
     if (!ChecklistID) {
       dispatch({ type: CHECKLIST_REVIEW_POST_FAILURE });
     }
+
+    if (!state.user.isLogged) {
+      History.push("/signin");
+      return;
+    }
+
     postChecklistReviewApi({
       checklist_id:ChecklistID,
       mood:detail,

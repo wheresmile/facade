@@ -29,7 +29,6 @@ export const starChecklistView = (review_id) => {
       return;
     }
 
-    console.log(state.user);
     if (!state.user.isLogged) {
       History.push("/signin");
       return;
