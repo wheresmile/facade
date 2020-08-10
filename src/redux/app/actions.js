@@ -21,7 +21,6 @@ export const getMotto = () => {
   return (dispatch, getState) => {
     let state = getState();
     // 如果已经拉取过一次，就不用再拉了
-    console.log("moto", state.app.motto);
     if (state.app.motto) {
       return;
     }

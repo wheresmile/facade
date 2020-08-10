@@ -7,7 +7,8 @@ import History from "App/history";
 
 export const getAllChecklistReviews = () => {
   return (dispatch, getState) => {
-    let lastReviewId = getState().lastReviewId;
+    let checklistReviews = getState().checklistReviews;
+    let lastReviewId = checklistReviews.lastReviewID;
     let params = {
       last_review_id: lastReviewId,
     }

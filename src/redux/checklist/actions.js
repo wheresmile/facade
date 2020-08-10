@@ -80,6 +80,5 @@ export const addChecklistReview = () => {
         dispatch( {type: CHECKLIST_REVIEW_POST_FAILURE} )
       }
     )
-    console.log("cj", detail)
   }
 }

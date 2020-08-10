@@ -9,6 +9,7 @@ import classnames from 'classnames';
 import Header from 'Containers/Header';
 import ListBox from 'Components/ChecklistReview/ListBox';
 import SideBar from 'Components/ChecklistReview/SideBar';
+import Button from 'Components/Buttons/Button';
 
 class ChecklistReview extends React.Component {
   componentDidMount() {
@@ -23,9 +24,26 @@ class ChecklistReview extends React.Component {
   }
   render() {
     const {
+      getAllChecklistReviews,
       starChecklistViewCB,
       ReviewsList,
+      HasMoreReviews,
     } = this.props;
+
+    let moreReviewsButton;
+    if (HasMoreReviews) {
+      moreReviewsButton = (
+        <div>
+          <Button onClick={getAllChecklistReviews}>查看更多</Button>
+        </div>
+      )
+    } else {
+      moreReviewsButton = (
+        <div className={styles.noMoreReviews}>
+          没有更多了。。。
+        </div>
+      )
+    }
 
     return (
       <Fragment>
@@ -35,6 +53,9 @@ class ChecklistReview extends React.Component {
             <ListBox reviewsList={ReviewsList} 
               starCallBack={starChecklistViewCB}
             />
+            <div>
+              {moreReviewsButton}
+            </div>
           </div>
           <div className={appLayout.secondaryContent}>
             <SideBar></SideBar>
@@ -49,6 +70,7 @@ class ChecklistReview extends React.Component {
 
 export default connect(
   (state) => {return {
+    HasMoreReviews: state.checklistReviews.HasMoreReviews,
     ReviewsList: state.checklistReviews.ReviewsList,
   }; },
   (dispatch) => { return {

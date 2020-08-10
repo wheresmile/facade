@@ -2,6 +2,7 @@ import { CHECKLIST_REVIEWS_FETCHING_SUCCESS, CHECKLIST_REVIEWS_FETCHING_FAILURE,
 
 const initialState = {
   lastReviewID: null,
+  HasMoreReviews: 1,
   ReviewsList: [],
   ReviewsMap: {},
   error: '',
@@ -16,6 +17,7 @@ export const checklistReviewsReducer = (state=initialState, action) => {
         reviewsMap[element["review_id"]] = element;
       });
       return Object.assign({}, state, {
+        HasMoreReviews: action.payload.has_more_reviews,
         lastReviewID: action.payload.last_review_id,
         ReviewsList: state.ReviewsList.concat(action.payload.reviews),
         ReviewsMap: reviewsMap,

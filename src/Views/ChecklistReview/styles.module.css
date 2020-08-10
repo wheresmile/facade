@@ -1,7 +1,14 @@
-@value largeBP from '~Shared/globalStyles.css';
+@value largeBP,secondaryFontColor from '~Shared/globalStyles.css';
 
 .contentArea {
   display: flex;
   margin-top: 15px;
   @media largeBP { flex-flow: row nowrap; }
+}
+
+.noMoreReviews {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  color: secondaryFontColor;
 }
