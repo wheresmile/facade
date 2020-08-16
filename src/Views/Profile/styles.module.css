@@ -1,0 +1,7 @@
+@value largeBP, primaryFontColor, secondaryFontColor, borderColor from '~Shared/globalStyles.css';
+
+.contentArea {
+  display: flex;
+  margin-top: 15px;
+  @media largeBP { flex-flow: row nowrap; }
+}

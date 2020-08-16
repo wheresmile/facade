@@ -49,3 +49,8 @@ export const postLogoutApi = (data) => {
 export const fetchUserInfo = (params) => {
   return request({ url: '/v1/user/info', method: 'get', params, })
 }
+
+// 拉取用户邀请码
+export const fetchUserInvitations = (params) => {
+  return request({ url: '/v1/user/invitation/all', method: 'get', params, })
+}

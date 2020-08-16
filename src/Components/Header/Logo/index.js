@@ -7,9 +7,9 @@ class Logo extends React.Component {
     return (
       <div className={styles.logoContainer}>
         <Link to="" className={styles.logo}>
-          <img className={styles.logo} src="./logo100.png" alt="logo"></img>
+          <img className={styles.logo} src="/logo100.png" alt="logo"></img>
         </Link>
-        <div className={styles.logoTitle}>万思没</div>
+        <Link to="" className={styles.logoTitle}>万思没</Link>
       </div>
     );
   }

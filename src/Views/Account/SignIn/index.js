@@ -45,12 +45,11 @@ class Login extends React.Component {
             <div className={styles.rightContent}>
               <div className={styles.formTitle}>登录</div>
               
-              <input key={'email'} type="text" placeholder={'邮箱'} value={accountForm.email} 
-              className={styles.inputCell}
-              onChange={(event) => {updateLoginEmail(event.target.value);}}
-              />
-
               <form>
+                <input key={'email'} type="text" placeholder={'邮箱'} value={accountForm.email} 
+                className={styles.inputCell}
+                onChange={(event) => {updateLoginEmail(event.target.value);}}
+                />
                 <input key={'password'} type="password" placeholder={'密码'} autoComplete="off" value={accountForm.password}
                 className={styles.inputCell}
                 onChange={(event) => {updateLoginPassword(event.target.value);}}

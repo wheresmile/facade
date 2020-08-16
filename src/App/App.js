@@ -17,6 +17,7 @@ import ChecklistReview from 'Views/ChecklistReview';
 import History from './history';
 import { getHomeTabs } from 'redux/app/actions';
 import { getUserInfo } from 'redux/user/actions';
+import Profile from 'Views/Profile';
 
 class App extends React.Component {
   componentDidMount() {
@@ -40,7 +41,7 @@ class App extends React.Component {
             <Route path="/signup"> <SignUp /> </Route>
             <Route path="/checklist"> <Checklist /> </Route>
             <Route path="/motto"> <Motto /> </Route>
-            <Route path="/user"> <Motto /> </Route>
+            <Route path="/user/profile"> <Profile /> </Route>
             <Route path=":forum/new_discussion"> <Motto /> </Route>
             <Route path="*"> <NotFound /> </Route>
           </Switch>

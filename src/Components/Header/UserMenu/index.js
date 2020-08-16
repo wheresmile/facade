@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import classnames from 'classnames';
 import styles from './styles.module.css';
 
 import Button from 'Components/Buttons/Button';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postLogout } from 'redux/account/actions';
 
@@ -53,7 +53,12 @@ class UserMenu extends React.Component {
           <Button onClick={this.toggleSubMenu} className={styles.subMenuClose} alwaysActive>
             <i className={classnames('fa fa-close')} aria-hidden="true"></i>
           </Button>
-          { isLogged && <a className={styles.subMenuItem} href="/" onClick={postLogout}>退出</a> }
+          { isLogged && 
+            <Fragment>
+              <NavLink className={styles.subMenuItem} to="/user/profile">个人资料</NavLink> 
+              <a className={styles.subMenuItem} href="/" onClick={postLogout}>退出</a> 
+            </Fragment>
+          }
         </div>
       );
     }

@@ -8,7 +8,8 @@ import SideBar from 'Components/ChecklistReview/SideBar';
 import { connect } from 'react-redux';
 import ListBox from 'Components/Checklist/ListBox';
 import Header from 'Containers/Header';
-import { getHomeChecklists, updateChecklistReviewChecklistID, updateChecklistReviewDetail, addChecklistReview } from 'redux/checklist/actions';
+import { getHomeChecklists, updateChecklistReviewChecklistID, 
+  updateChecklistReviewDetail, addChecklistReview } from 'redux/checklist/actions';
 
 class Checklist extends React.Component {
   componentDidMount() {

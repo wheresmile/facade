@@ -1,4 +1,4 @@
-@value smallBP from '~Shared/globalStyles.css';
+@value smallBP,borderColor from '~Shared/globalStyles.css';
 
 /**
  * Header Styles
@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid borderColor;
 
   @media smallBP { padding: 0px 10px; }
 }
