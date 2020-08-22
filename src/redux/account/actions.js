@@ -50,6 +50,13 @@ export const postSignup = () => {
       })
     }
 
+    if (password.length < 8) {
+      return dispatch({
+        type: USER_LOGIN_FAILURE,
+        payload: "密码长度至少8位",
+      })
+    }
+
     postSignupForm({
       nickname: nickname,
       email: email,

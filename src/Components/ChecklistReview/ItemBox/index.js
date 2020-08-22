@@ -26,18 +26,18 @@ class ItemBox extends React.Component{
 
     return (
       <div className={styles.container}>
-        <div className={classnames(styles.authorTitle)}>
-          <span className={styles.fiveMargin}>{review.author.nickname}</span>
-          <span className={styles.fiveMargin}>的打卡</span>
-          <span className={styles.fiveMargin}>{review.created_at}</span>
+        <div className={classnames(styles.checklistTitle)}>
+          <i className={classnames("fa fa-angle-double-right", styles.fiveMargin)} aria-hidden="true"></i>
+          {review.checklist.description}
         </div>
         <div className={classnames(styles.body)}>
           {review.review_mood}
         </div>
         <div className={classnames(styles.boxFooter)}>
-          <div>
-            <i className={classnames("fa fa-angle-double-right", styles.fiveMargin)} aria-hidden="true"></i>
-            {review.checklist.description}
+          <div className={classnames(styles.authorTitle)}>
+            <span className={styles.fiveMargin}>{review.author.nickname}</span>
+            <span className={styles.fiveMargin}>的打卡</span>
+            <span className={styles.fiveMargin}>{review.created_at}</span>
           </div>
           
           {starCountDom}

@@ -56,7 +56,7 @@ class SignUp extends React.Component {
               />
 
               <form>
-                <input key={'password'} type="password" placeholder={'密码'} autoComplete="off" value={accountForm.password}
+                <input key={'password'} type="password" placeholder={'密码(至少8位)'} autoComplete="off" value={accountForm.password}
                 className={styles.inputCell}
                 onChange={(event) => {updateLoginPassword(event.target.value);}}
                 />

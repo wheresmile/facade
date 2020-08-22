@@ -60,6 +60,10 @@ export const addChecklistReview = () => {
       dispatch({ type: CHECKLIST_REVIEW_POST_FAILURE });
     }
 
+    if (detail.length === 0){
+      detail = "打卡";
+    }
+
     if (!state.user.isLogged) {
       History.push("/signin");
       return;

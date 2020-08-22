@@ -13,8 +13,6 @@ export const getUserInfo = () => {
       data => {
         if (data.code === 200){
           dispatch({ type: HOME_FETCHING_USER_INFO_SUCCESS, payload: data.data});
-        } else if (data.code === 401) {
-          History.push("/signin");
         }
       }
     )
@@ -31,6 +29,8 @@ export const getUserAllInvitations = () => {
       data => {
         if (data.code === 200){
           dispatch({ type: USER_FETCHING_INVITATION_ALL_SUCCESS, payload: data.data});
+        } else if (data.code === 401) {
+          History.push("/signin");
         }
       }
     )

@@ -9,7 +9,7 @@
   &:last-child { border-bottom: none; }
 }
 
-.authorTitle {
+.authorTitle, .checklistTitle {
   color: gray;
 }
 
