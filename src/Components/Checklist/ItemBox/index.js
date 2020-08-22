@@ -65,7 +65,7 @@ class ItemBox extends React.Component{
         <div className={styles.boxFooter}>
           {last_review_dom}
           <div className={styles.todayPunch}>
-            <span style={{'font-size': '1px'}}>近30天</span> 共 {checked_count} 次打卡
+            <span style={{fontSize: '1px'}}>近30天</span> 共 {checked_count} 次打卡
           </div>
         </div>
         { id === reviewFormID &&

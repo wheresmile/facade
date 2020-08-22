@@ -1,0 +1,7 @@
+
+@value largeBP from '~Shared/globalStyles.css';
+
+.contentArea {
+  margin-top: 15px;
+  @media largeBP { flex-flow: row nowrap; }
+}

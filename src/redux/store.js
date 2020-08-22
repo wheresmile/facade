@@ -7,6 +7,7 @@ import { appReducer } from './app/reducers';
 import { userReducer } from './user/reducers';
 import { checklistReducer } from './checklist/reducers';
 import { accountFormReducer } from './account/reducers';
+import { checklistScenesReducer } from './checklistScene/reducers';
 
 // root reducer for app
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   checklists: checklistReducer,
   user: userReducer,
   accountForm: accountFormReducer,
+  checklistScenes: checklistScenesReducer,
   checklistReviews: checklistReviewsReducer,
 });
 

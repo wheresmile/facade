@@ -1,0 +1,20 @@
+@value borderColor, backShade, secondaryFontColor, primaryFontColor from '~Shared/globalStyles.css';
+@value smallBP from '~Shared/globalStyles.css';
+
+
+.box {
+  background-color: white;
+  border: 1px solid borderColor;
+  border-radius: 3px;
+  min-width: 180px;
+  max-width: 360px;
+  min-height: 180px;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  @media smallBP { 
+    flex-grow: 1;
+    max-width: unset;
+  }
+}

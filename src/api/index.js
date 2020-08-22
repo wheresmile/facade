@@ -10,6 +10,16 @@ export const fetchHomeChecklists = (params) => {
   return request({ url: '/v1/home/checklists', method: 'get', params });
 }
 
+// 拉取特定场景下的清单
+export const fetchChecklistsOfScene = (params) => { 
+  return request({ url: '/v1/checklist_scene/checklists', method: 'get', params });
+}
+
+// 拉取场景列表
+export const fetchChecklistScenes = (params) => {
+  return request({ url: '/v1/checklist_scene/all', method: 'get', params });
+}
+
 // 添加阅评
 export const postChecklistReviewApi = (data) => { 
   return request({ url: '/v1/checklists/review', method: 'post', data }) 
