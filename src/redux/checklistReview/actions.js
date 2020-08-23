@@ -12,9 +12,11 @@ export const getAllChecklistReviews = () => {
     let params = {
       last_review_id: lastReviewId,
     }
+    const documentScrollTop = document.documentElement.scrollTop;
     fetchAllChecklistReviews(params).then(
       data => {
         dispatch({ type: CHECKLIST_REVIEWS_FETCHING_SUCCESS, payload: data.data });
+        document.documentElement.scrollTop = documentScrollTop;
       },
       error => dispatch({ type: CHECKLIST_REVIEWS_FETCHING_FAILURE })
     )

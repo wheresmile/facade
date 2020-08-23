@@ -58,11 +58,14 @@ export const checklistReducer = (state = initialChecklistState, action) => {
 
     case CHECKLIST_REVIEW_POST_SUCCESS:{
       let checklist = state.mapInHome[action.payload.checklist.id];
-      if (action.payload.is_new) {
-        checklist.checked_count += 1;
+      if (checklist) {
+        if (action.payload.is_new) {
+          checklist.checked_count += 1;
+        }
+        checklist.checked=1;
+        checklist.last_review={author_nickname:"我", description: action.payload.mood};
       }
-      checklist.checked=1;
-      checklist.last_review={author_nickname:"我", description: action.payload.mood};
+      
       return Object.assign({}, state, {
         reviewFormID: null,
         reviewFormDetial: "",

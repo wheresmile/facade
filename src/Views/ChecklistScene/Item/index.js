@@ -24,18 +24,27 @@ class Item extends React.Component {
   }
   render() {
     const {
+      sceneId,
+    } = this.props.match.params;
+
+    const {
       checklists,
       reviewFormID,
       reviewFormDetial,
+      ScenesMap,
 
       updateChecklistReviewChecklistID,
       updateChecklistReviewDetail,
       addChecklistReview,
     } = this.props;
+    let scene = ScenesMap[sceneId];
 
     return (
       <Fragment>
         <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
+          <div className={styles.sceneTitle}>
+            {scene && scene.description}
+          </div>
           <ListBox checklists={checklists}
             reviewFormID={reviewFormID}
             reviewFormDetial={reviewFormDetial}
@@ -51,6 +60,7 @@ class Item extends React.Component {
 
 export default connect(
   (state) => {return {
+    ScenesMap: state.checklistScenes.ScenesMap,
     checklists: state.checklistScenes.checklists,
     reviewFormID: state.checklists.reviewFormID,
     reviewFormDetial: state.checklists.reviewFormDetial,
