@@ -16,3 +16,19 @@ yarn start
 # 打包生成静态资源
 yarn build
 ```
+
+## 部署
+
+本项目部署目前简单试用 [fabric](http://www.fabfile.org/) 进行自动化部署，需要本地安装有 python 环境。
+
+1. 安装 fabric
+
+    ```bash
+    # 安装 fabric
+    pip install fabric
+    ```
+
+1. 修改 Makefile 中的 fabric 部分，改为自己的服务器配置
+1. 修改 fabfile.py 中内容适配自己的服务器路径
+1. 执行 `make fabric`
+
