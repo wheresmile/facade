@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import ListBox from 'Components/ChecklistScene/ListBox';
 import { connect } from 'react-redux';
 import { getChecklistScenes } from 'redux/checklistScene/actions';
+import SideBar from './sidebar';
 
 class All extends React.Component {
   componentDidMount() {
@@ -27,8 +28,15 @@ class All extends React.Component {
     return (
       <Fragment>
         <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
-          <ListBox scenes={scenes} url={url}></ListBox>
+          <div className={appLayout.primaryContent}>
+            <ListBox scenes={scenes} url={url}></ListBox>
+          </div>
+          
+          <div className={appLayout.secondaryContent}>
+            <SideBar></SideBar>
+          </div>
         </div>
+        
       </Fragment>
     )
   }

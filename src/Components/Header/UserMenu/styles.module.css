@@ -16,6 +16,11 @@
   border-radius: 50px;
 }
 
+.userChevron {
+  font-size: 1px;
+  margin-left: 2px;
+}
+
 .title {
   margin-left: 15px;
   font-size: 14px;

@@ -76,7 +76,8 @@ class UserMenu extends React.Component {
       return (
         <div style={{ position: 'relative' }}>
           <div className={styles.container} onClick={this.toggleSubMenu}>
-            <span className={styles.title}>{userInfo.nickname}</span>
+            <span className={styles.title}>{userInfo.nickname}</span> 
+            <i className={classnames('fa fa-chevron-down', styles.userChevron)} aria-hidden="true"></i>
           </div>
           {this.renderSubMenu()}
         </div>

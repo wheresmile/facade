@@ -1,6 +1,12 @@
 @value largeBP from '~Shared/globalStyles.css';
 
 .contentArea {
+  display: flex;
   margin-top: 15px;
   @media largeBP { flex-flow: row nowrap; }
+}
+
+.sidebarContainer {
+  width: 250px;
+  margin-left: 10px;
 }
