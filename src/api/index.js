@@ -64,3 +64,8 @@ export const fetchUserInfo = (params) => {
 export const fetchUserInvitations = (params) => {
   return request({ url: '/v1/user/invitation/all', method: 'get', params, })
 }
+
+// 用户增加邀请码
+export const addInvitationApi = (data) => {
+  return request({ url: '/v1/user/invitation/add', method: 'post', data,})
+}

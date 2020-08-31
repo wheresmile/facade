@@ -1,0 +1,25 @@
+
+.addInvitation {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.invitationsBox {
+  margin: 5px 0;
+}
+
+.invitation {
+  display: flex;
+  justify-content:space-between;
+  border-bottom: 1px solid #f7f7f7;
+  margin: 3px 0;
+}
+
+.invitationUsed{
+  color: gray;
+}
+
+.invitationCode {
+  flex-grow: 1;
+}

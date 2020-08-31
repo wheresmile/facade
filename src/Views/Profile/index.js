@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import Header from 'Containers/Header';
 import Invitation from 'Components/Profiles/Invitation';
 import { connect } from 'react-redux';
-import { getUserAllInvitations } from 'redux/user/actions';
+import { getUserAllInvitations, addInvitation } from 'redux/user/actions';
 
 
 class Profile extends React.Component {
@@ -22,13 +22,17 @@ class Profile extends React.Component {
   render() {
     const {
       invitations,
+      addInvitation,
     } = this.props;
     
     return (
       <Fragment>
         <Header renderTabs={false} />
         <div className={classnames(appLayout.constraintWidth, styles.contentArea)}>
-          <Invitation invitations={invitations}></Invitation>
+          <Invitation 
+            invitations={invitations} 
+            addInvitation={addInvitation}
+          ></Invitation>
         </div>
       </Fragment>
     )
@@ -42,7 +46,8 @@ export default connect(
   }
   },
   (dispatch) => { return {
-    getUserAllInvitations: () => { dispatch(getUserAllInvitations()); }
+    getUserAllInvitations: () => { dispatch(getUserAllInvitations()); },
+    addInvitation: () => { dispatch(addInvitation()); },
   }
   }
 )(Profile);
