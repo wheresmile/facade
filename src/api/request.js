@@ -1,6 +1,4 @@
 import axios from 'axios';
-import History from 'App/history';
-
 
 // create an axios instance
 const service = axios.create({
@@ -25,9 +23,6 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data;
-    if (res.code === 401) {
-      History.push("/signin");
-    }
     return res;
   },
   error => {
